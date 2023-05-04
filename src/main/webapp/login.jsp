@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
-<%@ page import="ie.ucd.comp2013J.User" %>
-<%@ page import="ie.ucd.comp2013J.UserDAO" %>
+<%@ page import="pb.pojo.User" %>
+<%@ page import="pb.dao.UserDAO" %>
 
 <%
     String username = request.getParameter("username");

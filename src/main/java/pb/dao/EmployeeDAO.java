@@ -104,36 +104,35 @@ public class EmployeeDAO {
     }
 
     //TODO Question 4
-    public static boolean updateEmployee(Employee e) {
+    public static boolean updateEmployee(Employee e, int newEmpno) {
         boolean updated = false;
 
         try {
             Connection conn = JDBCTool.getConnection();
-            String query = "UPDATE employee SET firstname = ?, familyname = ?, job = ?, salary = ?, deptno = ? WHERE empno = ?";
+            String query = "UPDATE employee SET empno = ?, firstname = ?, familyname = ?, job = ?, salary = ?, deptno = ? WHERE empno = ?";
             PreparedStatement pst = conn.prepareStatement(query);
-            pst.setString(1, e.getFirstname());
-            pst.setString(2, e.getFamilyname());
-            pst.setString(3, e.getJob());
-            pst.setFloat(4, e.getSalary());
-            pst.setInt(5, e.getDeptno());
-            pst.setInt(6, e.getEmpno());
-
-
+            pst.setInt(1, newEmpno);
+            pst.setString(2, e.getFirstname());
+            pst.setString(3, e.getFamilyname());
+            pst.setString(4, e.getJob());
+            pst.setFloat(5, e.getSalary());
+            pst.setInt(6, e.getDeptno());
+            pst.setInt(7, e.getEmpno());
             int rows = pst.executeUpdate();
-
             if (rows > 0) {
                 updated = true;
             }
 
             pst.close();
             conn.close();
-
-        } catch (SQLException ex) {
-            ex.printStackTrace();
+        } catch (SQLException var6) {
+            var6.printStackTrace();
         }
 
         return updated;
     }
+
+
 
     //TODO Question 5
     public static boolean insertEmployee(Employee e) {

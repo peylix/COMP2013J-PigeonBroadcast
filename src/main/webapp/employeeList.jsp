@@ -1,9 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
-<%@ page import="ie.ucd.comp2013J.EmployeeDAO" %>
-<%@ page import="ie.ucd.comp2013J.Employee" %>
+<%@ page import="pb.dao.EmployeeDAO" %>
+<%@ page import="pb.pojo.Employee" %>
 <%@ page import="java.util.List" %>
-<%@ page import="ie.ucd.comp2013J.User" %>
+<%@ page import="pb.pojo.User" %>
+<%@ page import="pb.pojo.User" %>
 
 <!DOCTYPE html>
 <html>
