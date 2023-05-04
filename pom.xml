@@ -2,10 +2,10 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.example</groupId>
-    <artifactId>COMP2013J-Group2</artifactId>
+    <artifactId>COMP2013J-Group02</artifactId>
     <packaging>war</packaging>
     <version>1.0-SNAPSHOT</version>
-    <name>COMP2013J-Group2 Maven Webapp</name>
+    <name>COMP2013J-Group02 Maven Webapp</name>
     <url>http://maven.apache.org</url>
 
     <dependencies>
@@ -43,7 +43,7 @@
 
     </dependencies>
     <build>
-        <finalName>COMP2013J-Group2</finalName>
+        <finalName>COMP2013J-Group02</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
