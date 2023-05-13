@@ -1,6 +1,6 @@
 package pb.dao;
 
-import pb.JDBCTool;
+import pb.tool.JDBCTool;
 import pb.pojo.Employee;
 
 import java.sql.*;

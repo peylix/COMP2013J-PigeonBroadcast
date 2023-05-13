@@ -5,7 +5,7 @@
 
 package pb.dao;
 
-import pb.JDBCTool;
+import pb.tool.JDBCTool;
 import pb.pojo.User;
 
 import java.sql.Connection;
@@ -24,7 +24,6 @@ public class UserDAO {
             conn = JDBCTool.getConnection();
             Statement st = conn.createStatement();
             ResultSet rs = st.executeQuery("SELECT * FROM user WHERE username='" + username + "' AND password='" + password + "'");
-            System.out.println("SELECT * FROM user WHERE username='" + username + "' AND password='" + password + "'");
             if (rs.next()) {
                 String un = rs.getString("username");
                 String p = rs.getString("password");
