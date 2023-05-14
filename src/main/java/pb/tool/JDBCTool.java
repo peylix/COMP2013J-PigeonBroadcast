@@ -12,7 +12,6 @@ public class JDBCTool {
 
     public static void checkConnection() {
         try {
-
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection conn = DriverManager.getConnection(url, username, password);
             // 检查数据库是否存在
@@ -35,7 +34,8 @@ public class JDBCTool {
                 System.out.println("Cannot find database " + dbName + ", create one");
                 String[] sqls = TextTool.readSQL();
                 Statement stmt = conn.createStatement();
-                stmt.executeUpdate(sqls[0]); // 第一行是创建数据库
+                // 创建数据库
+                stmt.executeUpdate(sqls[0]);
                 // 连接数据库
                 conn = DriverManager.getConnection(url + dbName, username, password);
                 // 创建表格
@@ -47,6 +47,27 @@ public class JDBCTool {
                         System.out.println("Failed to execute SQL: " + sqls[i]);
                         e.printStackTrace();
                     }
+                }
+                // 为SchoolMember添加信息
+                String[] members = TextTool.readMembers();
+                for (String line : members) {
+                    String[] ss = line.split(" ");
+                    String sql = "INSERT INTO SchoolMembers (memberId, lastName, firstName, identity) VALUES (?, ?, ?, ?)";
+                    PreparedStatement ps = conn.prepareStatement(sql);
+                    String memberId = ss[0];
+                    String lastName = ss[1];
+                    String firstName = ss[2];
+                    String identity = "";
+                    switch (memberId.charAt(0)) {
+                        case '1' -> identity = "admin";
+                        case '2' -> identity = "teacher";
+                        case '3' -> identity = "student";
+                    }
+                    ps.setString(1, memberId);
+                    ps.setString(2, lastName);
+                    ps.setString(3, firstName);
+                    ps.setString(4, identity);
+                    ps.execute();
                 }
             }
 

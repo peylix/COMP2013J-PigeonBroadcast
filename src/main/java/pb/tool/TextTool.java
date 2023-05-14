@@ -1,7 +1,8 @@
 package pb.tool;
 
+import pb.ApplicationStart;
+
 import java.io.*;
-import java.sql.SQLException;
 
 public class TextTool {
     private String username;
@@ -25,7 +26,7 @@ public class TextTool {
     }
 
     public static String[] readSQL() {
-        InputStream in = TextTool.class.getClassLoader().getResourceAsStream("text/init_database.sql");
+        InputStream in = TextTool.class.getClassLoader().getResourceAsStream("text/database_init.sql");
         assert in != null;
         BufferedReader reader = new BufferedReader(new InputStreamReader(in));
         String line;
@@ -39,6 +40,24 @@ public class TextTool {
         }
 
         return sb.toString().split(";");
+    }
+
+    public static String[] readMembers() {
+        InputStream in = TextTool.class.getClassLoader().getResourceAsStream("text/school_member.txt");
+        assert in != null;
+        BufferedReader reader = new BufferedReader(new InputStreamReader(in));
+        String[] member = new String[200];
+        String line;
+        int i = 0;
+        try {
+            while ((line = reader.readLine()) != null) {
+                member[i] = line;
+                i++;
+            }
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        return member;
     }
 
     public String getUsername() {
