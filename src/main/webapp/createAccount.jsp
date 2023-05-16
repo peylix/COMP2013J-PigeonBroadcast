@@ -6,15 +6,17 @@
 <%@ page import="pb.dao.UserDAO" %>
 
 <%
-    String memberID = request.getParameter("memberID");
+    int memberID = Integer.parseInt(request.getParameter("memberID"));
     String lastName = request.getParameter("lastName");
     String firstName = request.getParameter("firstName");
+    String password = request.getParameter("password");
     String email = request.getParameter("email");
 
 //    out.print(username);
 //    out.print(password);
 //
 //    User u = UserDAO.login(username, password);
+    SchoolMembers s = SchoolMembersDAO.createAccount(memberID, lastName, firstName, password, email);
 
     if (u == null) {
         response.sendRedirect("index.jsp");

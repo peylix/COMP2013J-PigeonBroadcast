@@ -41,6 +41,9 @@
                     </label>
                 </div>
                 <label>
+                    <input type="text" placeholder="password" name="password"/>
+                </label>
+                <label>
                     <input type="text" placeholder="Email" name="email"/>
                 </label>
                 <button>create new account</button>
