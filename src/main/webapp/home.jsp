@@ -10,7 +10,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Employee List</title>
+    <title>Pigeon Broadcast Home Page</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 </head>
 <body>
@@ -55,7 +55,7 @@
         <ul class="pagination">
             <% if (currentPage > 1) { %>
             <li>
-                <a href="employeeList.jsp?currentPage=<%=currentPage-1%>" aria-label="Previous">
+                <a href="home.jsp?currentPage=<%=currentPage-1%>" aria-label="Previous">
                     <span aria-hidden="true">&laquo;</span>
                 </a>
             </li>
@@ -65,14 +65,14 @@
             <% if (i == currentPage) { %>
             <li class="active"><a href="#"><%=i%> <span class="sr-only">(current)</span></a></li>
             <% } else { %>
-            <li><a href="employeeList.jsp?currentPage=<%=i%>"><%=i%>
+            <li><a href="home.jsp?currentPage=<%=i%>"><%=i%>
             </a></li>
             <% } %>
             <% } %>
 
             <% if (currentPage < numOfPages) { %>
             <li>
-                <a href="employeeList.jsp?currentPage=<%=currentPage+1%>" aria-label="Next">
+                <a href="home.jsp?currentPage=<%=currentPage+1%>" aria-label="Next">
                     <span aria-hidden="true">&raquo;</span>
                 </a>
             </li>

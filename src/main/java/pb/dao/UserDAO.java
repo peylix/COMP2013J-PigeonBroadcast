@@ -8,29 +8,31 @@ package pb.dao;
 import pb.tool.JDBCTool;
 import pb.pojo.User;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
+import java.util.Objects;
 
 public class UserDAO {
     public UserDAO() {
     }
 
-    public static User login(String username, String password) {
+    public static User login(int userID, String password) {
         Connection conn = null;
 
         try {
             conn = JDBCTool.getConnection();
-            Statement st = conn.createStatement();
-            ResultSet rs = st.executeQuery("SELECT * FROM user WHERE username='" + username + "' AND password='" + password + "'");
+            String sql = "SELECT * FROM user WHERE userID=?";
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setInt(1, userID);
+            ResultSet rs = ps.executeQuery();
             if (rs.next()) {
-                String un = rs.getString("username");
                 String p = rs.getString("password");
-                String email = rs.getString("email");
-                User u = new User(un, p, email);
-                User var9 = u;
-                return var9;
+                String u = rs.getString("userName");
+                String pp = rs.getString("profilePhoto");
+                String e = rs.getString("email");
+                String i = rs.getString("identity");
+                if (Objects.equals(p, password)) {
+                    return new User(userID, p, u, pp, e, i);
+                }
             }
         } catch (SQLException var20) {
             var20.printStackTrace();
@@ -44,7 +46,6 @@ public class UserDAO {
             }
 
         }
-
         return null;
     }
 }

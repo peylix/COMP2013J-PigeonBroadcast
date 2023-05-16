@@ -1,28 +1,22 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
-<%@ page import="pb.pojo.SchoolMembers" %>
 <%@ page import="pb.dao.SchoolMembersDAO" %>
-<%@ page import="pb.pojo.User" %>
-<%@ page import="pb.dao.UserDAO" %>
+<%@ page import="java.util.Objects" %>
 
 <%
-    int memberID = Integer.parseInt(request.getParameter("memberID"));
-    String lastName = request.getParameter("lastName");
-    String firstName = request.getParameter("firstName");
-    String password = request.getParameter("password");
-    String email = request.getParameter("email");
+    if (Objects.equals(request.getParameter("memberID"), "")) response.sendRedirect("index.jsp");
+    else {
+        int memberID = Integer.parseInt(request.getParameter("memberID"));
+        String lastName = request.getParameter("lastName");
+        String firstName = request.getParameter("firstName");
+        String password = request.getParameter("password");
+        String email = request.getParameter("email");
 
-//    out.print(username);
-//    out.print(password);
-//
-//    User u = UserDAO.login(username, password);
-    SchoolMembers s = SchoolMembersDAO.createAccount(memberID, lastName, firstName, password, email);
-
-    if (u == null) {
-        response.sendRedirect("index.jsp");
-    } else {
-        session.setAttribute("user", u);
-        response.sendRedirect("employeeList.jsp");
+        if (SchoolMembersDAO.createAccount(memberID, lastName, firstName, password, email)) {
+            response.sendRedirect("index.jsp");
+        } else {
+            response.sendRedirect("index.jsp");
+        }
     }
 %>
 
@@ -30,9 +24,9 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Insert title</title>
+    <title>Nothing here</title>
 </head>
 <body>
-Wrong password!!!!!!
+Nothing here
 </body>
 </html>

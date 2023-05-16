@@ -34,7 +34,7 @@
         try {
             int empnoValue = Integer.parseInt(newEmpno);
             if (EmployeeDAO.updateEmployee(employee, empnoValue)) {
-                response.sendRedirect("employeeList.jsp");
+                response.sendRedirect("home.jsp");
             } else {
                 out.println("Update failed.");
             }
