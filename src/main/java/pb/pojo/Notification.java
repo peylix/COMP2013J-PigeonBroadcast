@@ -6,11 +6,11 @@ public class Notification {
     private int noteID;
     private String title;
     private String content;
-    private NotificationType type;
+    private String type;
     private Timestamp releaseDate;
     private int publisherID;
 
-    public Notification(int noteID, String title, String content, NotificationType type, Timestamp releaseDate, int publisherID) {
+    public Notification(int noteID, String title, String content, String type, Timestamp releaseDate, int publisherID) {
         this.noteID = noteID;
         this.title = title;
         this.content = content;
@@ -43,11 +43,11 @@ public class Notification {
         this.content = content;
     }
 
-    public NotificationType getType() {
+    public String getType() {
         return type;
     }
 
-    public void setType(NotificationType type) {
+    public void setType(String type) {
         this.type = type;
     }
 

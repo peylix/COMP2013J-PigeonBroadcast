@@ -23,7 +23,6 @@ public class JDBCTool {
                 String databaseName = resultSet.getString(1);
                 if (databaseName.equals(dbName)) {
                     databaseExists = true;
-                    System.out.println(1);
                     break;
                 }
 

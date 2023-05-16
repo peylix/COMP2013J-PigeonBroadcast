@@ -2,10 +2,10 @@ package pb.pojo;
 
 public class User {
 
+    // TODO 改成新的user
     private String username;
     private String password;
     private String email;
-
 
     public User(String username, String password, String email) {
         super();
@@ -13,7 +13,6 @@ public class User {
         this.password = password;
         this.email = email;
     }
-
 
     public String getUsername() {
         return username;

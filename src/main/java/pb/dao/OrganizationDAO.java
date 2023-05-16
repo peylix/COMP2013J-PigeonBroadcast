@@ -105,7 +105,7 @@ public class OrganizationDAO {
             pst.setInt(1, organization.getOrgID());
             pst.setString(2, organization.getOrgName());
             pst.setString(3, organization.getDescription());
-            pst.setInt(4, organization.getAdminId());
+            pst.setInt(4, organization.getAdminID());
 
             int rows = pst.executeUpdate();
 

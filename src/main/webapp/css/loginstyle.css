@@ -1,98 +1,150 @@
 .login-page {
-  width: 360px;
-  padding: 8% 0 0;
-  margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* 设置高度为视窗高度 */
+    width: 100%; /* 设置宽度为100% */
 }
+
 .form {
-  position: relative;
-  z-index: 1;
-  background: #FFFFFF;
-  max-width: 360px;
-  margin: 0 auto 100px;
-  padding: 45px;
-  text-align: center;
-  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: -10%;
+    height: 30vh;
+    width: 40%;
+
+    z-index: 1;
+    background: #B3C9FF;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 1px 3px 3px 1px rgba(0, 0, 0, 0.28);
+}
+
+.login-form input[type="text"],
+.login-form input[type="username"],
+.login-form input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f5f5f5;
+    color: #333;
 }
 .form input {
-  font-family: "Roboto", sans-serif;
-  outline: 0;
-  background: #f2f2f2;
-  width: 100%;
-  border: 0;
-  margin: 0 0 15px;
-  padding: 15px;
-  box-sizing: border-box;
-  font-size: 14px;
+    font-family: "Roboto", sans-serif;
+    outline: 0;
+    background: #f2f2f2;
+    width: 100%;
+    border: 0;
+    margin: 0 0 15px;
+    padding: 15px;
+    box-sizing: border-box;
+    font-size: 14px;
 }
+
 .form button {
-  font-family: "Roboto", sans-serif;
-  text-transform: uppercase;
-  outline: 0;
-  background: #4CAF50;
-  width: 100%;
-  border: 0;
-  padding: 15px;
-  color: #FFFFFF;
-  font-size: 14px;
-  -webkit-transition: all 0.3 ease;
-  transition: all 0.3 ease;
-  cursor: pointer;
+    font-family: "Roboto", sans-serif;
+    text-transform: uppercase;
+    outline: 0;
+    background: #4CAF50;
+    width: 100%;
+    border: 0;
+    padding: 15px;
+    color: #FFFFFF;
+    font-size: 14px;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    cursor: pointer;
 }
-.form button:hover,.form button:active,.form button:focus {
-  background: #43A047;
+
+.form button:hover, .form button:active, .form button:focus {
+    background: #43A047;
 }
+
 .form .message {
-  margin: 15px 0 0;
-  color: #b3b3b3;
-  font-size: 12px;
+    margin: 15px 0 0;
+    color: #b3b3b3;
+    font-size: 12px;
 }
+
 .form .message a {
-  color: #4CAF50;
-  text-decoration: none;
+    color: #4CAF50;
+    text-decoration: none;
 }
+
+/* 设置表单内注册表单的样式：默认隐藏 */
 .form .register-form {
-  display: none;
+    display: none;
 }
-.container {
-  position: relative;
-  z-index: 1;
-  max-width: 300px;
-  margin: 0 auto;
+
+/* 设置容器的样式：位置相对，z-index为1，最大宽度为300px，自动居中 */
+.web-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 25vh;
+    text-align: center;
+    width: 100%;
 }
-.container:before, .container:after {
-  content: "";
-  display: block;
-  clear: both;
+
+.web-title .title {
+    flex-direction: column; /* 修改为垂直方向的布局 */
+    align-items: center;
 }
-.container .info {
-  margin: 50px auto;
-  text-align: center;
+
+.web-title .title h1 {
+    align-items: center;
+    margin-bottom: 10px;
+    font-size: 96px;
+    font-family: "Showcard Gothic", serif;
+    font-weight: 100;
+    color: #1a1a1a;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5)
 }
-.container .info h1 {
-  margin: 0 0 15px;
-  padding: 0;
-  font-size: 36px;
-  font-weight: 300;
-  color: #1a1a1a;
+
+.web-title .title h2 {
+    align-self: flex-start; /* 将 h2 元素显示在上方偏右的位置 */
+    font-size: 24px; /* 修改字体大小为更小的值，例如 24px */
+    font-weight: 300; /* 修改字体粗细为更轻的值，例如 300 */
+    color: #1a1a1a;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    margin-top: 5px; /* 修改 h2 元素的上方间距 */
+    margin-left: 700px; /* 添加左侧的外边距，用于实现偏右的效果 */
 }
-.container .info span {
-  color: #4d4d4d;
-  font-size: 12px;
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%; /* 这样可以确保 body 和 html 元素占满整个视口的高度 */
 }
-.container .info span a {
-  color: #000000;
-  text-decoration: none;
-}
-.container .info span .fa {
-  color: #EF3B3A;
-}
+
+/* 设置body的样式：背景为从右到左的渐变色（从#76b852到#8DC26F），字体为Roboto，开启字体抗锯齿 */
 body {
-  background: #76b852; /* fallback for old browsers */
-  background: -webkit-linear-gradient(right, #76b852, #8DC26F);
-  background: -moz-linear-gradient(right, #76b852, #8DC26F);
-  background: -o-linear-gradient(right, #76b852, #8DC26F);
-  background: linear-gradient(to left, #76b852, #8DC26F);
-  font-family: "Roboto", sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;      
+    background-image: linear-gradient(135deg, #9999FF 0%, #c898ff 100%);
+    font-family: "Roboto", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    display: flex;
+    flex-direction: column;  /* 让内容按列方向（从上到下）排列 */
+    min-height: 100vh;  /* 设置最小高度为视口的高度 */
+}
+footer {
+    margin-top: auto;
+}
+.active-form {
+    display: block;
+}
+
+.inactive-form {
+    display: none;
+}
+.input-row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.input-row label {
+    flex: 1;
+    margin: 5px;
 }

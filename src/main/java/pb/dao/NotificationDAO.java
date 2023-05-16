@@ -23,7 +23,7 @@ public class NotificationDAO {
                 int noteID = rs.getInt("noteId");
                 String title = rs.getString("title");
                 String content = rs.getString("content");
-                NotificationType type = NotificationType.valueOf(rs.getString("type")); // This is a workaround since JDBC does not support enum.
+                String type = rs.getString("type"); // This is a workaround since JDBC does not support enum.
                 Timestamp releaseDate = rs.getTimestamp("releaseDate");
                 int publisherID = rs.getInt("publisherId");
 
@@ -60,7 +60,7 @@ public class NotificationDAO {
                 int noteID = rs.getInt("noteId");
                 String title = rs.getString("title");
                 String content = rs.getString("content");
-                NotificationType type = NotificationType.valueOf(rs.getString("type")); // This is a workaround since JDBC does not support enum.
+                String type = rs.getString("type"); // This is a workaround since JDBC does not support enum.
                 Timestamp releaseDate = rs.getTimestamp("releaseDate");
                 int publisherID = rs.getInt("publisherId");
 
@@ -91,7 +91,7 @@ public class NotificationDAO {
                 int noteID = rs.getInt("noteId");
                 String title = rs.getString("title");
                 String content = rs.getString("content");
-                NotificationType type = NotificationType.valueOf(rs.getString("type")); // This is a workaround since JDBC does not support enum.
+                String type = rs.getString("type"); // This is a workaround since JDBC does not support enum.
                 Timestamp releaseDate = rs.getTimestamp("releaseDate");
                 int publisherID = rs.getInt("publisherId");
 
@@ -122,7 +122,7 @@ public class NotificationDAO {
                 int noteID = rs.getInt("noteId");
                 String title = rs.getString("title");
                 String content = rs.getString("content");
-                NotificationType type = NotificationType.valueOf(rs.getString("type")); // This is a workaround since JDBC does not support enum.
+                String type = rs.getString("type"); // This is a workaround since JDBC does not support enum.
                 Timestamp releaseDate = rs.getTimestamp("releaseDate");
                 int publisherID = rs.getInt("publisherId");
 

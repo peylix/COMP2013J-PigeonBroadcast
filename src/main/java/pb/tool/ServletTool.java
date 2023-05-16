@@ -2,7 +2,6 @@ package pb.tool;
 
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
-import java.sql.*;
 
 public class ServletTool implements ServletContextListener {
 

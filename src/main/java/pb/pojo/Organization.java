@@ -4,13 +4,13 @@ public class Organization {
     private int orgID;
     private String orgName;
     private String description;
-    private int adminId;
+    private int adminID;
 
-    public Organization(int orgID, String orgName, String description, int adminId) {
+    public Organization(int orgID, String orgName, String description, int adminID) {
         this.orgID = orgID;
         this.orgName = orgName;
         this.description = description;
-        this.adminId = adminId;
+        this.adminID = adminID;
     }
 
     public int getOrgID() {
@@ -37,11 +37,11 @@ public class Organization {
         this.description = description;
     }
 
-    public int getAdminId() {
-        return adminId;
+    public int getAdminID() {
+        return adminID;
     }
 
-    public void setAdminId(int adminId) {
-        this.adminId = adminId;
+    public void setAdminID(int adminId) {
+        this.adminID = adminId;
     }
 }
