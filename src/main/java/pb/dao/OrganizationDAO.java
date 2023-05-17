@@ -1,6 +1,5 @@
 package pb.dao;
 
-import pb.pojo.Employee;
 import pb.pojo.Organization;
 import pb.tool.JDBCTool;
 

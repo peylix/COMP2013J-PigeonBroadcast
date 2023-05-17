@@ -1,8 +1,6 @@
 package pb.dao;
 
-import pb.pojo.Employee;
 import pb.pojo.Notification;
-import pb.pojo.NotificationType;
 import pb.tool.JDBCTool;
 
 import java.sql.*;
