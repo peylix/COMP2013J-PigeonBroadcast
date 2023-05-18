@@ -6,8 +6,8 @@
     <title>Pigeon Broadcast Login Page</title>
     <link rel="stylesheet" href="css/loginstyle.css">
 </head>
-<body>
 
+<body>
     <div class="web-title">
         <div class="title">
             <h1>Pigeon Broadcast</h1> <br>
