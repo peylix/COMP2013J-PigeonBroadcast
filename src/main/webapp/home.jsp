@@ -29,6 +29,13 @@
             <li id="personal-notice">Feathers from Individual</li>
         </ul>
     </div>
+    <div class="search-box">
+        <input type="text" placeholder="Search..."/>
+        <button type="submit">
+            <i class="fa fa-search"></i>  <!-- Replace with the icon class you are using -->
+        </button>
+    </div>
+
     <div class="main-content">
         <div class="info-bar">
             <h2 id="homepage">Pigeon Broadcast</h2>

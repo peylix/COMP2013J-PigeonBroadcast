@@ -1,7 +1,7 @@
 body {
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
+    min-height: 95vh;
     background-color: #1a1a1a;  /* Dark background color */
     color: #f5f5f5;  /* Light text color */
     font-family: 'Helvetica Neue', Arial, sans-serif;  /* Modern font */
@@ -9,7 +9,7 @@ body {
 
 .home-page {
     display: flex;
-    height: 70vh;
+    height: 95vh;  /* 100% viewport height */
     width: 100%;
     justify-content: center;  /* Centered layout */
 }
@@ -58,6 +58,43 @@ body {
 .sidebar .menu li:hover {
     background-color: #555;  /* Lighter color on hover */
 }
+
+.search-box {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: inline-flex;
+    align-items: center;
+    background: #444;
+    border-radius: 25px;
+    padding: 5px 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+.search-box input[type='text'] {
+    background: transparent;
+    border: none;
+    color: #f5f5f5;
+    padding: 10px 20px;
+    margin-right: 10px;
+    border-radius: 15px;
+}
+
+.search-box button {
+    background: #f5f5f5;
+    border: none;
+    color: #444;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.search-box button:hover {
+    background: dodgerblue;  /* Corrected color name */
+    color: #f5f5f5;
+}
+
 
 .main-content {
     width: 80%;
