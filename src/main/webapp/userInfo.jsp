@@ -8,6 +8,7 @@
 <head>
     <title>Pigeon Broadcast User Page</title>
     <link rel="stylesheet" href="css/homestyle.css">
+    <link rel="icon" href="images/Pigeon.png" type="image">
 </head>
 
 <%
@@ -40,10 +41,10 @@
 
     function changeImage() {
         let imageSelect = document.getElementById('imageSelect');
-        let PigeonPhoto = document.getElementById('PigeonPhoto');
+        let choosePhoto = document.getElementById('choosePhoto');
 
         // 更新当前显示的图片
-        PigeonPhoto.src = imageSelect.value;
+        choosePhoto.src = imageSelect.value;
     }
 </script>
 
@@ -60,10 +61,8 @@
             </h3>
         </div>
         <ul class="menu">
-            <li id="school-notice">Epistles from College</li>
-            <li id="course-notice">Epistles from Course</li>
-            <li id="community-notice">Feathers from Organization</li>
-            <li id="personal-notice">Feathers from Individual</li>
+            <li id="school-notice"><a href="epistlesPage.jsp">Epistles</a></li>
+            <li id="student-notice"><a href="feathersPage.jsp">Feathers</a></li>
         </ul>
     </div>
     <div class="search-box">

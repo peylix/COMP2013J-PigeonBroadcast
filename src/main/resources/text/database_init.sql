@@ -4,10 +4,11 @@ CREATE TABLE User
     userID       INT PRIMARY KEY AUTO_INCREMENT,
     password     VARCHAR(16)                          NOT NULL,
     userName     VARCHAR(16)                          NOT NULL,
-    profilePhoto VARCHAR(255),
+    profilePhoto VARCHAR(255) DEFAULT 'images/Pigeon.png',
     email        VARCHAR(255)                         NOT NULL,
     identity     ENUM ('admin', 'teacher', 'student') NOT NULL
 );
+
 CREATE TABLE Course
 (
     courseID    INT PRIMARY KEY AUTO_INCREMENT,
