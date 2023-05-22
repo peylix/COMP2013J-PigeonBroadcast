@@ -9,16 +9,23 @@
 </head>
 
 <%
+//    获取当前登录用户信息
     User user = (User) session.getAttribute("user");
     String userName = user.getUserName();
     int userID = user.getUserID();
+    String profilePhoto = user.getProfilePhoto();
+
+    session.setAttribute("user", user);
+
 %>
 
 <body>
 <div class="home-page">
     <div class="sidebar">
         <div class="user-info">
-            <img id="Pigeon" src="images/Pigeon.png" alt="Pigeon">
+            <a href="userInfo.jsp">
+                <img id="Pigeon" src="<%=profilePhoto%>" alt="Pigeon">
+            </a>
             <h3 id="userName"><%=userName%></h3>
             <h3 id="userID"><%=userID%></h3>
         </div>

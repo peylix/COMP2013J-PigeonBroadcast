@@ -5,6 +5,7 @@
 
 package pb.dao;
 
+import pb.pojo.Notification;
 import pb.tool.JDBCTool;
 import pb.pojo.User;
 
@@ -47,5 +48,29 @@ public class UserDAO {
 
         }
         return null;
+    }
+
+    public static boolean updateUserInfo(User user, String password, String profilePhoto, String email) {
+        boolean updated = false;
+        int userID = user.getUserID();
+        try {
+            Connection conn = JDBCTool.getConnection();
+            String query = "UPDATE user SET password = ?, profilePhoto = ?, email = ? WHERE userID = ?";
+            PreparedStatement pst = conn.prepareStatement(query);
+            pst.setString(1, password);
+            pst.setString(2, profilePhoto);
+            pst.setString(3, email);
+            pst.setInt(4, userID);
+            int rows = pst.executeUpdate();
+            if (rows > 0) {
+                updated = true;
+            }
+            pst.close();
+            conn.close();
+        } catch (SQLException var6) {
+            var6.printStackTrace();
+        }
+
+        return updated;
     }
 }
