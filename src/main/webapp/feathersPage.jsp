@@ -9,6 +9,8 @@
 <html>
 <head>
     <title>Title</title>
+    <link rel="stylesheet" href="css/homestyle.css">
+    <link rel="icon" href="images/Pigeon.png" type="image">
 </head>
 <body>
 
