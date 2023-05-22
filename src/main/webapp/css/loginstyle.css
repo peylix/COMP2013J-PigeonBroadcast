@@ -1,9 +1,18 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background-color: #1a1a1a;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    color: #f5f5f5;
+}
+
 .login-page {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh; /* 设置高度为视窗高度 */
-    width: 100%; /* 设置宽度为100% */
+    height: 65vh;
+    width: 100%;
 }
 
 .login-form,
@@ -14,12 +23,12 @@
     align-items: center;
     height: 70%;
     width: 70%;
-    max-width: 500px; /* 设置最大宽度，根据需要调整 */
-    max-height: 400px; /* 设置最大高度，根据需要调整 */
-    background: #B3C9FF;
-    border: 1px solid #ccc;
+    max-width: 500px;
+    max-height: 400px;
+    background: #282828;
+    border: 1px solid #444;
     border-radius: 10px;
-    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 1px 3px 3px 1px rgba(0, 0, 0, 0.28);
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
     padding: 20px;
 }
 
@@ -31,16 +40,16 @@
     width: 100%;
     padding: 10px;
     margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 10px; /* 添加圆角属性 */
-    background-color: #f5f5f5;
-    color: #333;
+    border: 1px solid #444;
+    border-radius: 10px;
+    background-color: #444;
+    color: #f5f5f5;
 }
 
 .form input {
-    font-family: "Roboto", sans-serif;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
     outline: 0;
-    background: #f2f2f2;
+    background: #444;
     width: 100%;
     border: 0;
     margin: 0 0 15px;
@@ -52,16 +61,15 @@
 
 
 .form button {
-    font-family: "Roboto", sans-serif;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
     text-transform: uppercase;
     outline: 0;
-    background: #4CAF50;
+    background: dodgerblue;
     width: 50%;
-    border: 2px solid #008000; /* 增加深绿色边框 */
+    border: 2px solid #008000;
     padding: 15px;
-    color: #FFFFFF;
+    color: #f5f5f5;
     font-size: 14px;
-    -webkit-transition: all 0.3s ease;
     transition: all 0.3s ease;
     cursor: pointer;
     border-radius: 10px;
@@ -71,9 +79,8 @@
     margin-top: 15px;
 }
 
-
 .form button:hover, .form button:active, .form button:focus {
-    background: #43A047;
+    background: lightblue;
 }
 
 .form .message {
@@ -83,16 +90,14 @@
 }
 
 .form .message a {
-    color: #4CAF50;
+    color: dodgerblue;
     text-decoration: none;
 }
 
-/* 设置表单内注册表单的样式：默认隐藏 */
 .form .register-form {
     display: none;
 }
 
-/* 设置容器的样式：位置相对，z-index为1，最大宽度为300px，自动居中 */
 .web-title {
     display: flex;
     justify-content: center;
@@ -103,7 +108,7 @@
 }
 
 .web-title .title {
-    flex-direction: column; /* 修改为垂直方向的布局 */
+    flex-direction: column;
     align-items: center;
 }
 
@@ -113,38 +118,28 @@
     font-size: 96px;
     font-family: "Showcard Gothic", serif;
     font-weight: 100;
-    color: #1a1a1a;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5)
+    color: #f5f5f5;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .web-title .title h2 {
-    align-self: flex-start; /* 将 h2 元素显示在上方偏右的位置 */
-    font-size: 24px; /* 修改字体大小为更小的值，例如 24px */
-    font-weight: 300; /* 修改字体粗细为更轻的值，例如 300 */
-    color: #1a1a1a;
+    align-self: flex-start;
+    font-size: 24px;
+    font-weight: 300;
+    color: #f5f5f5;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
-    margin-top: 5px; /* 修改 h2 元素的上方间距 */
-    margin-left: 700px; /* 添加左侧的外边距，用于实现偏右的效果 */
-}
-html, body {
-    margin: 0;
-    padding: 0;
-    height: 100%; /* 这样可以确保 body 和 html 元素占满整个视口的高度 */
+    margin-top: 5px;
+    margin-left: 700px;
 }
 
-/* 设置body的样式：背景为从右到左的渐变色（从#76b852到#8DC26F），字体为Roboto，开启字体抗锯齿 */
-body {
-    background-image: linear-gradient(135deg, #9999FF 0%, #c898ff 100%);
-    font-family: "Roboto", sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    display: flex;
-    flex-direction: column;  /* 让内容按列方向（从上到下）排列 */
-    min-height: 100vh;  /* 设置最小高度为视口的高度 */
-}
 footer {
     margin-top: auto;
+    background-color: #282828;
+    color: #f5f5f5;
+    padding: 20px;
+    text-align: center;
 }
+
 .active-form {
     display: block;
 }
@@ -152,6 +147,7 @@ footer {
 .inactive-form {
     display: none;
 }
+
 .input-row {
     display: flex;
     justify-content: space-between;
@@ -160,4 +156,6 @@ footer {
 .input-row label {
     flex: 1;
     margin: 5px;
+    color: #f5f5f5;
 }
+
