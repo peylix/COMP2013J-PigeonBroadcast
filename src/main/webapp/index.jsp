@@ -19,10 +19,10 @@
         <div class="form">
             <form id="login-form" class="active-form" method="post" action="login.jsp">
                 <label>
-                    <input type="text" placeholder="user ID" name="userID"/>
+                    <input type="text" placeholder="User ID" name="userID"/>
                 </label>
                 <label>
-                    <input type="text" placeholder="password" name="password"/>
+                    <input type="text" placeholder="Password" name="password"/>
                 </label>
                 <button>login</button>
                 <button type="button" id="create-account-button">create new account</button>
@@ -41,7 +41,7 @@
                     </label>
                 </div>
                 <label>
-                    <input type="text" placeholder="password" name="password"/>
+                    <input type="text" placeholder="Password" name="password"/>
                 </label>
                 <label>
                     <input type="text" placeholder="Email" name="email"/>
