@@ -34,33 +34,34 @@
 
 <%
 
-    String title = request.getParameter("title");
-    String message = request.getParameter("message");
+    String title;
+    String message;
     if ("GET".equalsIgnoreCase(request.getMethod())) {
-        // This is a POST request. Get the posted form data.
-        notifications = new ArrayList<>();
-        notifications.addAll(NotificationDAO.getNotificationByType("course"));
-        notifications.addAll(NotificationDAO.getNotificationByType("school"));
-        notifications.sort(Comparator.comparing(Notification::getReleaseDate).reversed());
         title = request.getParameter("title");
         message = request.getParameter("message");
 
-        LocalDateTime now = LocalDateTime.now();
-        Timestamp time = Timestamp.valueOf(now);
+        // Check if the title and message are not empty
+        if (title != null && !title.trim().isEmpty() && message != null && !message.trim().isEmpty()) {
+            LocalDateTime now = LocalDateTime.now();
+            Timestamp time = Timestamp.valueOf(now);
 
-        String type = null;
-        if (Objects.equals(user.getIdentity(), "admin")) type = "school";
-        else if (Objects.equals(user.getIdentity(), "teacher")) type = "course";
+            String type = null;
+            if (Objects.equals(user.getIdentity(), "admin")) type = "school";
+            else if (Objects.equals(user.getIdentity(), "teacher")) type = "course";
 
-        if (type != null) {
-            Notification notif = new Notification(title, message, type, time, user.getUserID());
-            NotificationDAO.insertNotification(notif);
-        } else {
-            out.print("Unable to send message. Perhaps you do not have the permission.");
+            if (type != null) {
+                Notification notif = new Notification(title, message, type, time, user.getUserID());
+                NotificationDAO.insertNotification(notif);
+            } else {
+                out.print("Unable to send message. Perhaps you do not have the permission.");
+            }
+
+            // Refresh the notifications list
+            notifications = new ArrayList<>();
+            notifications.addAll(NotificationDAO.getNotificationByType("course"));
+            notifications.addAll(NotificationDAO.getNotificationByType("school"));
+            notifications.sort(Comparator.comparing(Notification::getReleaseDate).reversed());
         }
-
-
-//        response.sendRedirect("epistlesPage.jsp");
     }
 %>
 
@@ -103,7 +104,7 @@
                     <label>
                         <input type="text" id="new-message" name="message" placeholder="Write a message..."/>
                     </label>
-                    <button type="submit" id="send-button"><a href="epistlesPage.jsp"> Send</a></button>
+                    <button type="submit" id="send-button">Send</button>
                 </div>
             </form>
             <%
@@ -145,5 +146,6 @@
         </div>
     </div>
 </div>
+<%@ include file="footer.html" %>
 </body>
 </html>
