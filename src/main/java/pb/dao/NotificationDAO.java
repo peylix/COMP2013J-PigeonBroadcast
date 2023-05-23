@@ -9,6 +9,7 @@ import java.util.List;
 
 public class NotificationDAO {
 
+
     public static List<Notification> getAllNotifications() {
         List<Notification> notifications = new ArrayList<>();
 
@@ -339,13 +340,12 @@ public class NotificationDAO {
 
         try {
             Connection conn = JDBCTool.getConnection();
-            String query = "INSERT INTO notification (noteId, title, content, type, releaseDate, publisherId) VALUES (?, ?, ?, " + notification.getType() +", ?, ?)";
+            String query = "INSERT INTO notification (title, content, type, releaseDate, publisherId) VALUES (?, ?, " + notification.getType() +", ?, ?)";
             PreparedStatement pst = conn.prepareStatement(query);
             pst.setString(1, notification.getTitle());
             pst.setString(2, notification.getContent());
             pst.setTimestamp(3, notification.getReleaseDate());
             pst.setInt(4, notification.getPublisherID());
-            pst.setInt(5, notification.getNoteID());
 
             int rows = pst.executeUpdate();
 
