@@ -55,7 +55,7 @@ public class NotificationDAO {
 
             ResultSet rs = pst.executeQuery();
 
-            if (rs.next()) {
+            while (rs.next()) {
 
                 int noteID = rs.getInt("noteId");
                 String title = rs.getString("title");
@@ -81,13 +81,13 @@ public class NotificationDAO {
 
         try {
             Connection conn = JDBCTool.getConnection();
-            String query = "SELECT * FROM notification WHERE title = ?";
+            String query = "SELECT * FROM notification WHERE title LIKE ?";
             PreparedStatement pst = conn.prepareStatement(query);
             pst.setString(1, "%" + nTitle + "%");
 
             ResultSet rs = pst.executeQuery();
 
-            if (rs.next()) {
+            while (rs.next()) {
 
                 int noteID = rs.getInt("noteId");
                 String title = rs.getString("title");
@@ -113,13 +113,13 @@ public class NotificationDAO {
 
         try {
             Connection conn = JDBCTool.getConnection();
-            String query = "SELECT * FROM notification WHERE content = ?";
+            String query = "SELECT * FROM notification WHERE content LIKE ?";
             PreparedStatement pst = conn.prepareStatement(query);
             pst.setString(1, "%" + nContent + "%");
 
             ResultSet rs = pst.executeQuery();
 
-            if (rs.next()) {
+            while (rs.next()) {
 
                 int noteID = rs.getInt("noteId");
                 String title = rs.getString("title");
@@ -145,13 +145,13 @@ public class NotificationDAO {
 
         try {
             Connection conn = JDBCTool.getConnection();
-            String query = "SELECT * FROM notification WHERE type = ?";
+            String query = "SELECT * FROM notification WHERE type LIKE ?";
             PreparedStatement pst = conn.prepareStatement(query);
             pst.setString(1, "%" + nType + "%");
 
             ResultSet rs = pst.executeQuery();
 
-            if (rs.next()) {
+            while (rs.next()) {
 
                 int noteID = rs.getInt("noteId");
                 String title = rs.getString("title");
@@ -177,13 +177,13 @@ public class NotificationDAO {
 
         try {
             Connection conn = JDBCTool.getConnection();
-            String query = "SELECT * FROM notification WHERE releaseDate = ?";
+            String query = "SELECT * FROM notification WHERE releaseDate LIKE ?";
             PreparedStatement pst = conn.prepareStatement(query);
             pst.setTimestamp(1, nTime);
 
             ResultSet rs = pst.executeQuery();
 
-            if (rs.next()) {
+            while (rs.next()) {
 
                 int noteID = rs.getInt("noteId");
                 String title = rs.getString("title");
@@ -215,7 +215,7 @@ public class NotificationDAO {
 
             ResultSet rs = pst.executeQuery();
 
-            if (rs.next()) {
+            while (rs.next()) {
 
                 int noteID = rs.getInt("noteId");
                 String title = rs.getString("title");
@@ -233,6 +233,7 @@ public class NotificationDAO {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        System.out.println(notifications.size());
         return notifications;
     }
 
