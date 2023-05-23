@@ -35,11 +35,12 @@
             <li id="student-notice"><a href="feathersPage.jsp">Feathers</a></li>
         </ul>
     </div>
+
     <div class="search-box">
-        <input type="text" placeholder="Search..."/>
-        <button type="submit">
-            <i class="fa fa-search"></i>  <!-- Replace with the icon class you are using -->
-        </button>
+        <form id="search-input" method="get" action="search.jsp">
+            <label><input type="text" placeholder="Search..." name="searchInput"></label>
+            <button type="submit"></button>
+        </form>
     </div>
 
     <div class="main-content">
