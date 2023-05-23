@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class NotificationDAO {
+
     public static List<Notification> getAllNotifications() {
         List<Notification> notifications = new ArrayList<>();
 
@@ -42,14 +43,14 @@ public class NotificationDAO {
         return notifications;
     }
 
-    public static Notification getNotificationByID(int nid) {
-        Notification notification = null;
+    public static List<Notification> getNotificationByID(int nid) {
+        List<Notification> notifications = new ArrayList<>();
 
         try {
             Connection conn = JDBCTool.getConnection();
-            String query = "SELECT * FROM notification WHERE noteId = ?";
+            String query = "SELECT * FROM notification WHERE CAST(noteId as CHAR) LIKE ?";
             PreparedStatement pst = conn.prepareStatement(query);
-            pst.setInt(1, nid);
+            pst.setString(1, "%" + nid + "%");
 
             ResultSet rs = pst.executeQuery();
 
@@ -58,11 +59,12 @@ public class NotificationDAO {
                 int noteID = rs.getInt("noteId");
                 String title = rs.getString("title");
                 String content = rs.getString("content");
-                String type = rs.getString("type"); // This is a workaround since JDBC does not support enum.
+                String type = rs.getString("type");
                 Timestamp releaseDate = rs.getTimestamp("releaseDate");
                 int publisherID = rs.getInt("publisherId");
 
-                notification = new Notification(noteID, title, content, type, releaseDate, publisherID);
+                Notification notification = new Notification(noteID, title, content, type, releaseDate, publisherID);
+                notifications.add(notification);
 
             }
             pst.close();
@@ -70,17 +72,17 @@ public class NotificationDAO {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return notification;
+        return notifications;
     }
 
-    public static Notification getNotificationByTitle(String nTitle) {
-        Notification notification = null;
+    public static List<Notification> getNotificationByTitle(String nTitle) {
+        List<Notification> notifications = new ArrayList<>();
 
         try {
             Connection conn = JDBCTool.getConnection();
             String query = "SELECT * FROM notification WHERE title = ?";
             PreparedStatement pst = conn.prepareStatement(query);
-            pst.setString(1, nTitle);
+            pst.setString(1, "%" + nTitle + "%");
 
             ResultSet rs = pst.executeQuery();
 
@@ -89,11 +91,12 @@ public class NotificationDAO {
                 int noteID = rs.getInt("noteId");
                 String title = rs.getString("title");
                 String content = rs.getString("content");
-                String type = rs.getString("type"); // This is a workaround since JDBC does not support enum.
+                String type = rs.getString("type");
                 Timestamp releaseDate = rs.getTimestamp("releaseDate");
                 int publisherID = rs.getInt("publisherId");
 
-                notification = new Notification(noteID, title, content, type, releaseDate, publisherID);
+                Notification notification = new Notification(noteID, title, content, type, releaseDate, publisherID);
+                notifications.add(notification);
 
             }
             pst.close();
@@ -101,17 +104,113 @@ public class NotificationDAO {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return notification;
+        return notifications;
     }
 
-    public static Notification getNotificationByPublisherID(int pid) {
-        Notification notification = null;
+    public static List<Notification> getNotificationByContent(String nContent) {
+        List<Notification> notifications = new ArrayList<>();
 
         try {
             Connection conn = JDBCTool.getConnection();
-            String query = "SELECT * FROM notification WHERE publisherId = ?";
+            String query = "SELECT * FROM notification WHERE content = ?";
             PreparedStatement pst = conn.prepareStatement(query);
-            pst.setInt(1, pid);
+            pst.setString(1, "%" + nContent + "%");
+
+            ResultSet rs = pst.executeQuery();
+
+            if (rs.next()) {
+
+                int noteID = rs.getInt("noteId");
+                String title = rs.getString("title");
+                String content = rs.getString("content");
+                String type = rs.getString("type");
+                Timestamp releaseDate = rs.getTimestamp("releaseDate");
+                int publisherID = rs.getInt("publisherId");
+
+                Notification notification = new Notification(noteID, title, content, type, releaseDate, publisherID);
+                notifications.add(notification);
+
+            }
+            pst.close();
+            conn.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return notifications;
+    }
+
+    public static List<Notification> getNotificationByType(String nType) {
+        List<Notification> notifications = new ArrayList<>();
+
+        try {
+            Connection conn = JDBCTool.getConnection();
+            String query = "SELECT * FROM notification WHERE type = ?";
+            PreparedStatement pst = conn.prepareStatement(query);
+            pst.setString(1, "%" + nType + "%");
+
+            ResultSet rs = pst.executeQuery();
+
+            if (rs.next()) {
+
+                int noteID = rs.getInt("noteId");
+                String title = rs.getString("title");
+                String content = rs.getString("content");
+                String type = rs.getString("type");
+                Timestamp releaseDate = rs.getTimestamp("releaseDate");
+                int publisherID = rs.getInt("publisherId");
+
+                Notification notification = new Notification(noteID, title, content, type, releaseDate, publisherID);
+                notifications.add(notification);
+
+            }
+            pst.close();
+            conn.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return notifications;
+    }
+
+    public static List<Notification> getNotificationByReleaseTime(Timestamp nTime) {
+        List<Notification> notifications = new ArrayList<>();
+
+        try {
+            Connection conn = JDBCTool.getConnection();
+            String query = "SELECT * FROM notification WHERE releaseDate = ?";
+            PreparedStatement pst = conn.prepareStatement(query);
+            pst.setTimestamp(1, nTime);
+
+            ResultSet rs = pst.executeQuery();
+
+            if (rs.next()) {
+
+                int noteID = rs.getInt("noteId");
+                String title = rs.getString("title");
+                String content = rs.getString("content");
+                String type = rs.getString("type");
+                Timestamp releaseDate = rs.getTimestamp("releaseDate");
+                int publisherID = rs.getInt("publisherId");
+
+                Notification notification = new Notification(noteID, title, content, type, releaseDate, publisherID);
+                notifications.add(notification);
+
+            }
+            pst.close();
+            conn.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return notifications;
+    }
+
+    public static List<Notification> getNotificationByPublisherID(int pid) {
+        List<Notification> notifications = new ArrayList<>();
+
+        try {
+            Connection conn = JDBCTool.getConnection();
+            String query = "SELECT * FROM notification WHERE CAST(publisherId as CHAR) LIKE ?";
+            PreparedStatement pst = conn.prepareStatement(query);
+            pst.setString(1, "%" + pid + "%");
 
             ResultSet rs = pst.executeQuery();
 
@@ -124,7 +223,8 @@ public class NotificationDAO {
                 Timestamp releaseDate = rs.getTimestamp("releaseDate");
                 int publisherID = rs.getInt("publisherId");
 
-                notification = new Notification(noteID, title, content, type, releaseDate, publisherID);
+                Notification notification = new Notification(noteID, title, content, type, releaseDate, publisherID);
+                notifications.add(notification);
 
             }
             pst.close();
@@ -132,7 +232,7 @@ public class NotificationDAO {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return notification;
+        return notifications;
     }
 
     public static boolean deleteNotificationByID(int nid) {
@@ -210,19 +310,16 @@ public class NotificationDAO {
         return deleted;
     }
 
-    public static boolean updateNotification(Notification notification, int newID) {
+    public static boolean updateNotification(Notification notification) {
         boolean updated = false;
 
         try {
             Connection conn = JDBCTool.getConnection();
-            String query = "UPDATE notification SET noteId = ?, title = ?, content = ?, type = " + notification.getType() + ", releaseDate = ?, publisherId = ? WHERE noteId = ?";
+            String query = "UPDATE notification SET title = ?, content = ? WHERE noteId = ?";
             PreparedStatement pst = conn.prepareStatement(query);
-            pst.setInt(1, newID);
-            pst.setString(2, notification.getTitle());
-            pst.setString(3, notification.getContent());
-            pst.setTimestamp(4, notification.getReleaseDate());
-            pst.setInt(5, notification.getPublisherID());
-            pst.setInt(6, notification.getNoteID());
+            pst.setString(1, notification.getTitle());
+            pst.setString(2, notification.getContent());
+            pst.setInt(2, notification.getNoteID());
             int rows = pst.executeUpdate();
             if (rows > 0) {
                 updated = true;
