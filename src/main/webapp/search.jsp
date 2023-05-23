@@ -139,7 +139,7 @@
             %>
             <div class="notification">
                 <h3>ID: <%= notification.getNoteID()%></h3>
-                <h2 onclick="showDetails(<%= notification.getNoteID()%>)">Title: <%= notification.getTitle() %></h2>
+                <h2><a href="details.jsp?noteID=<%= notification.getNoteID()%>">Title: <%= notification.getTitle() %></a></h2>
                 <h3>Type: <%= notification.getType() %></h3>
                 <h3>Publisher ID: <%= notification.getPublisherID() %></h3>
                 <h3>Release Time: <%= notification.getReleaseDate() %></h3>
