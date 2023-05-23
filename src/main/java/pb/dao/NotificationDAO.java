@@ -233,7 +233,6 @@ public class NotificationDAO {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        System.out.println(notifications.size());
         return notifications;
     }
 

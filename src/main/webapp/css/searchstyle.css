@@ -1,0 +1,166 @@
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 95vh;
+    background-color: #1a1a1a;  /* Dark background color */
+    color: #f5f5f5;  /* Light text color */
+    font-family: 'Helvetica Neue', Arial, sans-serif;  /* Modern font */
+}
+
+.home-page {
+    display: flex;
+    height: 95vh;  /* 100% viewport height */
+    width: 100%;
+    justify-content: center;  /* Centered layout */
+}
+
+.sidebar {
+    width: 20%;
+    background-color: #282828;  /* Darker sidebar */
+    color: #f5f5f5;  /* Light text color */
+    display: ruby;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);  /* Shadow for depth */
+}
+
+.sidebar .user-info {
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.sidebar .user-info img {
+    width: 50%;
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);  /* Shadow for depth */
+}
+
+.sidebar .user-info h3 {
+    margin-top: 10px;
+}
+
+.sidebar .menu {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar .menu li {
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #444;  /* Darker menu item background */
+    text-align: center;
+    cursor: pointer;
+    border-radius: 5px;  /* Rounded corners for modern look */
+    transition: background-color 0.3s;  /* Smooth color transition */
+}
+
+.sidebar .menu li:hover {
+    background-color: #555;  /* Lighter color on hover */
+}
+
+.search-box {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: inline-flex;
+    align-items: center;
+    background: #444;
+    border-radius: 25px;
+    padding: 5px 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+.search-box input[type='text'] {
+    background: transparent;
+    border: none;
+    color: #f5f5f5;
+    padding: 10px 20px;
+    margin-right: 10px;
+    border-radius: 15px;
+}
+
+.search-box button {
+    background: #f5f5f5;
+    border: none;
+    color: #444;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.search-box button:hover {
+    background: dodgerblue;  /* Corrected color name */
+    color: #f5f5f5;
+}
+
+
+.main-content {
+    width: 80%;
+    background-color: #222;  /* Darker main content background */
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);  /* Shadow for depth */
+}
+
+.main-content .info-bar {
+    background-color: #222;  /* Darker info bar background */
+    color: dodgerblue;  /* Bright color for contrast */
+    text-align: center;
+}
+
+.main-content .notice-content {
+    padding: 20px 20px 50px;
+    box-sizing: border-box; /* Make sure padding is included in element's total height */
+    overflow-x: hidden;
+    overflow-y: hidden;
+    scrollbar-color: #555 #222;
+    position: relative;
+}
+
+
+
+.notification {
+    background-color: #444;
+    border-radius: 15px;
+    margin-bottom: 15px;
+    padding: 10px;
+    max-height: 250px;  /* Adjust as needed */
+    overflow-y: auto;
+}
+
+.notification h2, .notification h3 {
+    margin: 10px 0;
+}
+
+.notification h2 {
+    text-decoration: none;
+    color: dodgerblue;
+    cursor: pointer;
+}
+
+.notification h2:hover {
+    text-decoration: underline;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: auto;  /* pushes the element to the bottom */
+    width: 100%;
+}
+
+
+.pagination span, .pagination a {
+    background-color: dodgerblue;
+    color: white;
+    border-radius: 15px;
+    margin: 0 10px;
+    padding: 10px 15px;
+    text-decoration: none;
+}
+
+.pagination a:hover {
+    background-color: darkblue;
+}
+
