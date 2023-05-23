@@ -12,7 +12,7 @@
 <html>
 <head>
     <title>Pigeon Broadcast Search Page</title>
-    <link rel="stylesheet" href="css/homestyle.css">
+    <link rel="stylesheet" href="css/searchstyle.css">
     <link rel="icon" href="images/Pigeon.png" type="image">
 </head>
 
@@ -94,20 +94,6 @@
                 // Ignored, as the searchInput might not be a timestamp
             }
         }
-
-//        if (u == null) {
-//            response.sendRedirect("index.jsp");
-//        } else {
-//            session.setAttribute("user", u);
-//            response.sendRedirect("home.jsp");
-//        }
-
-        //ID 模糊搜索notification的ID
-        //TI 模糊搜索notification的title
-        //CO 模糊搜索notification的content
-        //TY 直接搜索notification的type
-        //RD 直接搜索notification的发表时间
-        //PI 模糊搜索notification的作者
     }
 %>
 
@@ -152,8 +138,8 @@
                     Notification notification = notifications.get(i);
             %>
             <div class="notification">
-                <h2>ID: <%= notification.getNoteID()%></h2>
-                <h3>Title: <%= notification.getTitle() %></h3>
+                <h3>ID: <%= notification.getNoteID()%></h3>
+                <h2 onclick="showDetails(<%= notification.getNoteID()%>)">Title: <%= notification.getTitle() %></h2>
                 <h3>Type: <%= notification.getType() %></h3>
                 <h3>Publisher ID: <%= notification.getPublisherID() %></h3>
                 <h3>Release Time: <%= notification.getReleaseDate() %></h3>
@@ -182,6 +168,27 @@
 </div>
 
 <%@ include file="footer.html" %>
+
+<script>
+    function showDetails(id) {
+        // Send an AJAX request to fetch the details
+        const xhr = new XMLHttpRequest();
+        xhr.open('GET', 'details.jsp?noteID=' + id, true);
+        xhr.onload = function() {
+            if (this.status === 200) {
+                // Replace the content of the notice-content div with the details
+                document.querySelector('.notice-content').innerHTML = this.responseText;
+            }
+        };
+        xhr.send();
+    }
+
+    function goBack() {
+        // Reload the page to go back to the list view
+        location.reload();
+    }
+</script>
+
 
 </body>
 </html>
