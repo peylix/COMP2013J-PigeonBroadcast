@@ -19,6 +19,14 @@ public class Notification {
         this.publisherID = publisherID;
     }
 
+    public Notification(String title, String content, String type, Timestamp releaseDate, int publisherID) {
+        this.title = title;
+        this.content = content;
+        this.type = type;
+        this.releaseDate = releaseDate;
+        this.publisherID = publisherID;
+    }
+
     public int getNoteID() {
         return noteID;
     }

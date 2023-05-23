@@ -30,10 +30,23 @@
             <h3 id="userName"><%=userName%></h3>
             <h3 id="userID"><%=userID%></h3>
         </div>
-        <ul class="menu">
-            <li id="school-notice"><a href="epistlesPage.jsp">Epistles</a></li>
-            <li id="student-notice"><a href="feathersPage.jsp">Feathers</a></li>
-        </ul>
+<%--        <ul class="menu">--%>
+<%--            <li id="school-notice"><a href="epistlesPage.jsp">Epistles</a></li>--%>
+<%--            <li id="student-notice"><a href="feathersPage.jsp">Feathers</a></li>--%>
+<%--        </ul>--%>
+        <div>
+            <form id="sidebar-1" method='post' action="epistlesPage.jsp">
+                <label>
+                    <button type="submit">Epistles</button>
+                </label>
+            </form>
+            <form id="sidebar-2" method="post" action="feathersPage.jsp">
+                <label>
+                    <button type="submit">Feathers</button>
+                </label>
+            </form>
+
+        </div>
     </div>
 
     <div class="search-box">
