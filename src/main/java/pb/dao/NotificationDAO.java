@@ -20,12 +20,12 @@ public class NotificationDAO {
             ResultSet rs = st.executeQuery("SELECT * FROM notification");
 
             while (rs.next()) {
-                int noteID = rs.getInt("noteId");
+                int noteID = rs.getInt("noteID");
                 String title = rs.getString("title");
                 String content = rs.getString("content");
                 String type = rs.getString("type"); // This is a workaround since JDBC does not support enum.
                 Timestamp releaseDate = rs.getTimestamp("releaseDate");
-                int publisherID = rs.getInt("publisherId");
+                int publisherID = rs.getInt("publisherID");
 
                 Notification n = new Notification(noteID, title, content, type, releaseDate, publisherID);
 
@@ -57,12 +57,12 @@ public class NotificationDAO {
 
             while (rs.next()) {
 
-                int noteID = rs.getInt("noteId");
+                int noteID = rs.getInt("noteID");
                 String title = rs.getString("title");
                 String content = rs.getString("content");
                 String type = rs.getString("type");
                 Timestamp releaseDate = rs.getTimestamp("releaseDate");
-                int publisherID = rs.getInt("publisherId");
+                int publisherID = rs.getInt("publisherID");
 
                 Notification notification = new Notification(noteID, title, content, type, releaseDate, publisherID);
                 notifications.add(notification);
@@ -89,12 +89,12 @@ public class NotificationDAO {
 
             while (rs.next()) {
 
-                int noteID = rs.getInt("noteId");
+                int noteID = rs.getInt("noteID");
                 String title = rs.getString("title");
                 String content = rs.getString("content");
                 String type = rs.getString("type");
                 Timestamp releaseDate = rs.getTimestamp("releaseDate");
-                int publisherID = rs.getInt("publisherId");
+                int publisherID = rs.getInt("publisherID");
 
                 Notification notification = new Notification(noteID, title, content, type, releaseDate, publisherID);
                 notifications.add(notification);
@@ -121,12 +121,12 @@ public class NotificationDAO {
 
             while (rs.next()) {
 
-                int noteID = rs.getInt("noteId");
+                int noteID = rs.getInt("noteID");
                 String title = rs.getString("title");
                 String content = rs.getString("content");
                 String type = rs.getString("type");
                 Timestamp releaseDate = rs.getTimestamp("releaseDate");
-                int publisherID = rs.getInt("publisherId");
+                int publisherID = rs.getInt("publisherID");
 
                 Notification notification = new Notification(noteID, title, content, type, releaseDate, publisherID);
                 notifications.add(notification);
@@ -153,12 +153,12 @@ public class NotificationDAO {
 
             while (rs.next()) {
 
-                int noteID = rs.getInt("noteId");
+                int noteID = rs.getInt("noteID");
                 String title = rs.getString("title");
                 String content = rs.getString("content");
                 String type = rs.getString("type");
                 Timestamp releaseDate = rs.getTimestamp("releaseDate");
-                int publisherID = rs.getInt("publisherId");
+                int publisherID = rs.getInt("publisherID");
 
                 Notification notification = new Notification(noteID, title, content, type, releaseDate, publisherID);
                 notifications.add(notification);
@@ -185,12 +185,12 @@ public class NotificationDAO {
 
             while (rs.next()) {
 
-                int noteID = rs.getInt("noteId");
+                int noteID = rs.getInt("noteID");
                 String title = rs.getString("title");
                 String content = rs.getString("content");
                 String type = rs.getString("type");
                 Timestamp releaseDate = rs.getTimestamp("releaseDate");
-                int publisherID = rs.getInt("publisherId");
+                int publisherID = rs.getInt("publisherID");
 
                 Notification notification = new Notification(noteID, title, content, type, releaseDate, publisherID);
                 notifications.add(notification);
@@ -217,12 +217,12 @@ public class NotificationDAO {
 
             while (rs.next()) {
 
-                int noteID = rs.getInt("noteId");
+                int noteID = rs.getInt("noteID");
                 String title = rs.getString("title");
                 String content = rs.getString("content");
                 String type = rs.getString("type"); // This is a workaround since JDBC does not support enum.
                 Timestamp releaseDate = rs.getTimestamp("releaseDate");
-                int publisherID = rs.getInt("publisherId");
+                int publisherID = rs.getInt("publisherID");
 
                 Notification notification = new Notification(noteID, title, content, type, releaseDate, publisherID);
                 notifications.add(notification);
@@ -242,7 +242,7 @@ public class NotificationDAO {
 
         try {
             Connection conn = JDBCTool.getConnection();
-            String query = "DELETE FROM notification WHERE noteId = ?";
+            String query = "DELETE FROM notification WHERE noteID = ?";
             PreparedStatement pst = conn.prepareStatement(query);
             pst.setInt(1, nid);
 
@@ -292,7 +292,7 @@ public class NotificationDAO {
 
         try {
             Connection conn = JDBCTool.getConnection();
-            String query = "DELETE FROM notification WHERE publisherId = ?";
+            String query = "DELETE FROM notification WHERE publisherID = ?";
             PreparedStatement pst = conn.prepareStatement(query);
             pst.setInt(1, pid);
 
@@ -317,7 +317,7 @@ public class NotificationDAO {
 
         try {
             Connection conn = JDBCTool.getConnection();
-            String query = "UPDATE notification SET title = ?, content = ? WHERE noteId = ?";
+            String query = "UPDATE notification SET title = ?, content = ? WHERE noteID = ?";
             PreparedStatement pst = conn.prepareStatement(query);
             pst.setString(1, notification.getTitle());
             pst.setString(2, notification.getContent());
@@ -341,12 +341,13 @@ public class NotificationDAO {
 
         try {
             Connection conn = JDBCTool.getConnection();
-            String query = "INSERT INTO notification (title, content, type, releaseDate, publisherId) VALUES (?, ?, " + notification.getType() +", ?, ?)";
+            String query = "INSERT INTO notification (title, content, type, releaseDate, publisherID) VALUES (?, ?, ?, ?, ?)";
             PreparedStatement pst = conn.prepareStatement(query);
             pst.setString(1, notification.getTitle());
             pst.setString(2, notification.getContent());
-            pst.setTimestamp(3, notification.getReleaseDate());
-            pst.setInt(4, notification.getPublisherID());
+            pst.setString(3, notification.getType());
+            pst.setTimestamp(4, notification.getReleaseDate());
+            pst.setInt(5, notification.getPublisherID());
 
             int rows = pst.executeUpdate();
 
