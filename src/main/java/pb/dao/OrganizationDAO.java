@@ -1,5 +1,6 @@
 package pb.dao;
 
+import pb.pojo.Notification;
 import pb.pojo.Organization;
 import pb.tool.JDBCTool;
 
@@ -39,6 +40,35 @@ public class OrganizationDAO {
 
         return organizations;
     }
+    public static List<Organization> getOrganizationByUserID(int nid) {
+        List<Organization> organizations = new ArrayList<>();
+
+        try {
+            Connection conn = JDBCTool.getConnection();
+            String query = "SELECT * FROM organization WHERE CAST(adminID as CHAR) LIKE ?";
+            PreparedStatement pst = conn.prepareStatement(query);
+            pst.setString(1, "%" + nid + "%");
+
+            ResultSet rs = pst.executeQuery();
+
+            while (rs.next()) {
+                int orgID = rs.getInt("orgID");
+                String orgName = rs.getString("orgName");
+                String description = rs.getString("description");
+                int adminID = rs.getInt("adminId");
+
+                Organization organization = new Organization(orgID, orgName, description, adminID);
+                organizations.add(organization);
+
+            }
+            pst.close();
+            conn.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return organizations;
+    }
+
 
     public static Organization getOrganizationByID(int oid) {
         Organization organization = null;
@@ -68,6 +98,8 @@ public class OrganizationDAO {
         }
         return organization;
     }
+
+
 
     public static boolean deleteOrganizationByID(int oid) {
         boolean deleted = false;

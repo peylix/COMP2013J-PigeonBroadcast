@@ -109,7 +109,7 @@
 <div class="home-page">
     <div class="sidebar">
         <div class="user-info">
-            <a href="userInfo.jsp">
+            <a href="home.jsp">
                 <img id="Pigeon" src="<%=profilePhoto%>" alt="Pigeon">
             </a>
             <h3 id="userName"><%=userName%></h3>
@@ -122,6 +122,7 @@
                     <button type="submit" class="sidebar-button">Epistles</button>
                 </label>
             </form>
+            <br>
             <form id="sidebar-2" method="post" action="feathersPage.jsp">
                 <label>
                     <button type="submit" class="sidebar-button">Feathers</button>
@@ -134,7 +135,7 @@
 
     <div class="search-box">
         <form id="search-input" method="get" action="search.jsp">
-            <label><input type="text" name="searchInput" placeholder="Search..."/></label>
+            <label><input type="text" placeholder="Search..." name="searchInput"></label>
             <button type="submit"></button>
         </form>
     </div>
@@ -156,7 +157,6 @@
             %>
             <div class="notification">
                 <h3>ID: <%= notification.getNoteID()%></h3>
-<%--                <% session.setAttribute("noteID", notification.getNoteID()); %>--%>
                 <h2><a href="details.jsp?noteID=<%= notification.getNoteID()%>">Title: <%= notification.getTitle() %></a></h2>
                 <h3>Type: <%= notification.getType() %></h3>
                 <h3>Publisher ID: <%= notification.getPublisherID() %></h3>
@@ -199,11 +199,6 @@
             }
         };
         xhr.send();
-    }
-
-    function goBack() {
-        // Reload the page to go back to the list view
-        location.reload();
     }
 </script>
 
