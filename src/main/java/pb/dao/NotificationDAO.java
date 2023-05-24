@@ -76,6 +76,36 @@ public class NotificationDAO {
         return notifications;
     }
 
+    public static Notification getSingleNotificationByID(int nid) {
+        Notification notification = null;
+        try {
+            Connection conn = JDBCTool.getConnection();
+            String query = "SELECT * FROM notification WHERE CAST(noteId as CHAR) LIKE ?";
+            PreparedStatement pst = conn.prepareStatement(query);
+            pst.setString(1, "%" + nid + "%");
+
+            ResultSet rs = pst.executeQuery();
+
+            while (rs.next()) {
+
+                int noteID = rs.getInt("noteID");
+                String title = rs.getString("title");
+                String content = rs.getString("content");
+                String type = rs.getString("type");
+                Timestamp releaseDate = rs.getTimestamp("releaseDate");
+                int publisherID = rs.getInt("publisherID");
+
+                notification = new Notification(noteID, title, content, type, releaseDate, publisherID);
+
+            }
+            pst.close();
+            conn.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return notification;
+    }
+
     public static List<Notification> getNotificationByTitle(String nTitle) {
         List<Notification> notifications = new ArrayList<>();
 
@@ -311,7 +341,7 @@ public class NotificationDAO {
         return deleted;
     }
 
-    public static boolean updateNotification(Notification notification) {
+    public static boolean updateNotification(Notification notification, int nid) {
         boolean updated = false;
 
         try {
@@ -320,7 +350,7 @@ public class NotificationDAO {
             PreparedStatement pst = conn.prepareStatement(query);
             pst.setString(1, notification.getTitle());
             pst.setString(2, notification.getContent());
-            pst.setInt(2, notification.getNoteID());
+            pst.setInt(3, nid);
             int rows = pst.executeUpdate();
             if (rows > 0) {
                 updated = true;

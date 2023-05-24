@@ -26,8 +26,10 @@
 %>
 <%
     int noteID = Integer.parseInt(request.getParameter("noteID"));
+//    int noteID = (int) session.getAttribute("noteID");
     Notification notification = NotificationDAO.getNotificationByID(noteID).get(0);
     User publisher = UserDAO.getUserByID(notification.getPublisherID());
+    session.setAttribute("noteID", noteID);
 %>
 
 <body>
@@ -77,7 +79,18 @@
                     <div class="notification-body">
                         <p class="notification-content"><%= notification.getContent() %></p>
                     </div>
-                    <button onclick="goBack()">返回</button>
+                    <button id="modifyButton" onclick="modifyNotification()">Modify</button>
+                    <button id="deleteButton" onclick="deleteNotification()">Delete</button>
+                    <button onclick="goBack()">Back</button>
+                    <%
+                        session.setAttribute("user", user);
+                        session.setAttribute("notification", notification);
+                    %>
+<%--                    <%--%>
+<%--                        request.setAttribute("user", user);--%>
+<%--                        RequestDispatcher dispatcher = request.getRequestDispatcher("deleteNotification.jsp");--%>
+<%--                        dispatcher.forward(request, response);--%>
+<%--                    %>--%>
                 </div>
 
             </div>
@@ -92,6 +105,15 @@
     function goBack() {
         // Reload the page to go back to the list view
         history.back();
+    }
+
+    function deleteNotification() {
+        // Send a GET request to deleteNotification.jsp
+        window.location.href = 'deleteNotification.jsp?noteID=' + <%= noteID %>;
+    }
+
+    function modifyNotification() {
+        window.location.href = 'modifyNotification.jsp?noteID=' + <%= noteID %>;
     }
 </script>
 

@@ -1,0 +1,125 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page import="pb.dao.NotificationDAO" %>
+<%@ page import="java.io.IOException" %>
+<%@ page import="pb.pojo.User" %>
+<%@ page import="java.util.Objects" %>
+<%@ page import="pb.pojo.Notification" %>
+<%@ page import="java.time.LocalDateTime" %>
+<%@ page import="java.sql.Timestamp" %>
+<html>
+
+<head>
+    <title>Modifying</title>
+    <link rel="stylesheet" href="css/messagestyle.css">
+    <link rel="icon" href="images/Pigeon.png" type="image">
+</head>
+<%
+
+    User user = (User) session.getAttribute("user");
+    String userName = user.getUserName();
+    int userID = user.getUserID();
+    String profilePhoto = user.getProfilePhoto();
+
+    Notification notification = (Notification) session.getAttribute("notification");
+
+    String title;
+    String message;
+    int noteID;
+
+    if ("GET".equalsIgnoreCase(request.getMethod())) {
+        title = request.getParameter("title");
+        message = request.getParameter("message");
+        noteID = notification.getNoteID();
+
+        // Check if the title and message are not empty
+        if (title != null && !title.trim().isEmpty() && message != null && !message.trim().isEmpty()) {
+            LocalDateTime now = LocalDateTime.now();
+            Timestamp time = Timestamp.valueOf(now);
+
+            String type = null;
+            if (Objects.equals(user.getIdentity(), "admin")) type = "school";
+            else if (Objects.equals(user.getIdentity(), "teacher")) type = "course";
+
+            if (type != null) {
+                Notification notif = new Notification(title, message, type, time, user.getUserID());
+                NotificationDAO.updateNotification(notif, noteID);
+                if (Objects.equals(user.getIdentity(), "admin") || Objects.equals(user.getIdentity(), "teacher")) {
+                    response.sendRedirect("epistlesPage.jsp");
+                } else {
+                    response.sendRedirect("feathersPage.jsp");
+                }
+            } else {
+                out.print("Unable to send message. Perhaps you do not have the permission.");
+            }
+        }
+    }
+%>
+
+<body>
+<div class="home-page">
+    <div class="sidebar">
+        <div class="user-info">
+            <a href="userInfo.jsp">
+                <img id="Pigeon" src="<%=profilePhoto%>" alt="Pigeon">
+            </a>
+            <h3 id="userName"><%=userName%>
+            </h3>
+            <h3 id="userID"><%=userID%>
+            </h3>
+        </div>
+        <ul class="menu">
+            <li id="school-notice"><a href="epistlesPage.jsp">Epistles</a></li>
+            <li id="student-notice"><a href="feathersPage.jsp">Feathers</a></li>
+        </ul>
+    </div>
+
+    <div class="search-box">
+        <form id="search-input" method="get" action="search.jsp">
+            <label><input type="text" name="searchInput" placeholder="Search..."/></label>
+            <button type="submit"></button>
+        </form>
+    </div>
+
+    <div class="main-content">
+        <div class="info-bar">
+            <h2 id="homepage">Modifying</h2>
+        </div>
+        <div class="notice-content">
+            <form id="send-message" method="get" action="modifyNotification.jsp">
+                <div class="message-input">
+                    <label>
+                        <input type="text" id="new-title" name="title" placeholder="New Title..."/>
+                    </label>
+                    <label>
+                        <input type="text" id="new-message" name="message" placeholder="Write a new message..."/>
+                    </label>
+                    <button type="submit" id="send-button">Done</button>
+                </div>
+            </form>
+            <div class="notification">
+                <h3>ID: <%= notification.getNoteID()%></h3>
+                <%--                <% session.setAttribute("noteID", notification.getNoteID()); %>--%>
+                <h2><a href="details.jsp?noteID=<%= notification.getNoteID()%>">Title: <%= notification.getTitle() %></a></h2>
+                <h3>Type: <%= notification.getType() %></h3>
+                <h3>Publisher ID: <%= notification.getPublisherID() %></h3>
+                <h3>Release Time: <%= notification.getReleaseDate() %></h3>
+                <h4><%= notification.getContent()%></h4>
+            </div>
+        </div>
+    </div>
+</div>
+<%--<form method="get" action="modifyNotification.jsp">--%>
+<%--    <input type="hidden" name="noteId" value="<%=noteID%>"/>--%>
+<%--    <label>--%>
+<%--        Title:--%>
+<%--        <input type="text" name="title" value="<%=notification.getTitle()%>"/>--%>
+<%--    </label>--%>
+<%--    <label>--%>
+<%--        Message:--%>
+<%--        <input type="text" name="message" value="<%=notification.getContent()%>"/>--%>
+<%--    </label>--%>
+<%--    <button type="submit">Update</button>--%>
+<%--</form>--%>
+</body>
+</html>
+
