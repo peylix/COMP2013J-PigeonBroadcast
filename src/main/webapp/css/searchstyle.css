@@ -122,46 +122,46 @@ body {
 .notification {
     background-color: #444;
     border-radius: 15px;
-    padding: 20px;
-    width: 90%;
-    margin: 0 auto;
+    margin-bottom: 15px;
+    padding: 10px;
+    max-height: 250px;  /* Adjust as needed */
     overflow-y: auto;
 }
 
-.notification-header {
+.notification h2, .notification h3 {
+    margin: 10px 0;
+}
+
+.notification h2 {
+    text-decoration: none;
+    color: dodgerblue;
+    cursor: pointer;
+}
+
+.notification h2:hover {
+    text-decoration: underline;
+}
+
+.pagination {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    margin-bottom: 20px;
+    margin-top: 15px;
+    position: absolute;  /* New */
+    bottom: 0;  /* New */
+    width: 100%;  /* New */
 }
 
-.publisher-avatar {
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    margin-right: 10px;
+.pagination span, .pagination a {
+    background-color: dodgerblue;
+    color: white;
+    border-radius: 15px;
+    margin: 0 10px;
+    padding: 10px 15px;
+    text-decoration: none;
 }
 
-.publisher-info {
-    display: flex;
-    align-items: center;
+.pagination a:hover {
+    background-color: darkblue;
 }
 
-.notification-info {
-    text-align: right;
-}
-
-.notification-title {
-    font-size: 1.5em;
-    margin: 0;
-}
-
-.notification-release-time, .notification-type {
-    font-size: 0.8em;
-    margin: 0;
-}
-
-.notification-body {
-    font-size: 1.2em;
-    margin-bottom: 20px;
-}

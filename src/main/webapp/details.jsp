@@ -26,10 +26,8 @@
 %>
 <%
     int noteID = Integer.parseInt(request.getParameter("noteID"));
-//    int noteID = (int) session.getAttribute("noteID");
     Notification notification = NotificationDAO.getNotificationByID(noteID).get(0);
     User publisher = UserDAO.getUserByID(notification.getPublisherID());
-    session.setAttribute("noteID", noteID);
 %>
 
 <body>
@@ -79,18 +77,13 @@
                     <div class="notification-body">
                         <p class="notification-content"><%= notification.getContent() %></p>
                     </div>
+                    <button class="button-back" onclick="goBack()">Go Back</button>
                     <button id="modifyButton" onclick="modifyNotification()">Modify</button>
                     <button id="deleteButton" onclick="deleteNotification()">Delete</button>
-                    <button onclick="goBack()">Back</button>
                     <%
                         session.setAttribute("user", user);
                         session.setAttribute("notification", notification);
                     %>
-<%--                    <%--%>
-<%--                        request.setAttribute("user", user);--%>
-<%--                        RequestDispatcher dispatcher = request.getRequestDispatcher("deleteNotification.jsp");--%>
-<%--                        dispatcher.forward(request, response);--%>
-<%--                    %>--%>
                 </div>
 
             </div>
