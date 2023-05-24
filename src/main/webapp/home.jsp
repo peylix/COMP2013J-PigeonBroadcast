@@ -26,6 +26,7 @@
     String profilePhoto = user.getProfilePhoto();
 
     session.setAttribute("user", user);
+
 %>
 
 <body>
@@ -45,12 +46,12 @@
                     <button type="submit" class="sidebar-button">Epistles</button>
                 </label>
             </form>
+            <br>
             <form id="sidebar-2" method="post" action="feathersPage.jsp">
                 <label>
                     <button type="submit" class="sidebar-button">Feathers</button>
                 </label>
             </form>
-
 
         </div>
     </div>
@@ -68,14 +69,17 @@
         </div>
         <div class="notice-content">
             <!-- The notice content will be loaded dynamically here -->
-            <h2>Pigeon Broadcast is a service for everyone in the college.</h2>
-            <h2>Pigeon allows you to send, modify and delete your own messages.</h2>
-            <h2>You can search other's message using the search box.</h2>
+            <h2>Pigeon Broadcast is a notification service for the college community.</h2>
+            <h2>It enables you to send, modify, and delete your own messages.</h2>
+            <h2>You can also search for notifications posted by others using the search box.</h2>
             <br>
             <br>
-            <h2>Note that </h2>
-            <h2>If you are a stuff, send your message via Epistles.</h2>
-            <h2>If you are a student, send via Feathers.</h2>
+            <h2>Please note:</h2>
+            <h2>- If you are an admin or a teacher,
+                <br>
+                  please use the "Epistles" feature to send your notifications. </h2>
+            <h2>- If you are a student (or you may also be managing a club), <br>
+                  please use the "Feathers" feature to send your notifications.</h2>
         </div>
     </div>
 </div>

@@ -43,7 +43,7 @@
 <div class="home-page">
     <div class="sidebar">
         <div class="user-info">
-            <a href="userInfo.jsp">
+            <a href="home.jsp">
                 <img id="Pigeon" src="<%=profilePhoto%>" alt="Pigeon">
             </a>
             <h3 id="userName"><%=userName%></h3>
@@ -56,6 +56,7 @@
                     <button type="submit" class="sidebar-button">Epistles</button>
                 </label>
             </form>
+            <br>
             <form id="sidebar-2" method="post" action="feathersPage.jsp">
                 <label>
                     <button type="submit" class="sidebar-button">Feathers</button>
@@ -69,7 +70,7 @@
 
     <div class="search-box">
         <form id="search-input" method="get" action="search.jsp">
-            <label><input type="text" name="searchInput" placeholder="Search..."/></label>
+            <label><input type="text" placeholder="Search..." name="searchInput"></label>
             <button type="submit"></button>
         </form>
     </div>

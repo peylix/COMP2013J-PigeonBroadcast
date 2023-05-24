@@ -64,7 +64,7 @@
 <div class="home-page">
     <div class="sidebar">
         <div class="user-info">
-            <a href="userInfo.jsp">
+            <a href="home.jsp">
                 <img id="Pigeon" src="<%=profilePhoto%>" alt="Pigeon">
             </a>
             <h3 id="userName"><%=userName%></h3>
@@ -77,6 +77,7 @@
                     <button type="submit" class="sidebar-button">Epistles</button>
                 </label>
             </form>
+            <br>
             <form id="sidebar-2" method="post" action="feathersPage.jsp">
                 <label>
                     <button type="submit" class="sidebar-button">Feathers</button>
@@ -86,7 +87,6 @@
 
         </div>
     </div>
-
     <div class="search-box">
         <input type="text" placeholder="Search..."/>
         <button type="submit">
@@ -98,7 +98,7 @@
         <div class="info-bar">
             <h2 id="homepage">Your Personal Information</h2>
         </div>
-        <div class="notice-content">
+        <div class="info-content">
             <div class="user-basic-info">
                 <p>User ID: <%=userID%></p>
                 <p>User Name: <%=userName%></p>
@@ -140,10 +140,15 @@
                     for (Notification notification : userNotifications) {
                 %>
                 <div class="notification-card">
-                    <h4><%=notification.getTitle()%></h4>
-                    <p><%=notification.getContent()%></p>
+                    <h3>ID: <%= notification.getNoteID()%></h3>
+                    <h2><a href="details.jsp?noteID=<%= notification.getNoteID()%>">Title: <%= notification.getTitle() %></a></h2>
+                    <h3>Type: <%= notification.getType() %></h3>
+                    <h3>Publisher ID: <%= notification.getPublisherID() %></h3>
+                    <h3>Release Time: <%= notification.getReleaseDate() %></h3>
                 </div>
                 <% } %>
+
+
             </div>
         </div>
     </div>

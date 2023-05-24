@@ -46,7 +46,7 @@
     String message;
     if ("GET".equalsIgnoreCase(request.getMethod())) {
         title = request.getParameter("title");
-        message = request.getParameter("message");
+        message = request.getParameter("message2");
 
         // Check if the title and message are not empty
         if (title != null && !title.trim().isEmpty() && message != null && !message.trim().isEmpty()) {
@@ -78,7 +78,7 @@
 <div class="home-page">
     <div class="sidebar">
         <div class="user-info">
-            <a href="userInfo.jsp">
+            <a href="home.jsp">
                 <img id="Pigeon" src="<%=profilePhoto%>" alt="Pigeon">
             </a>
             <h3 id="userName"><%=userName%></h3>
@@ -91,6 +91,7 @@
                     <button type="submit" class="sidebar-button">Epistles</button>
                 </label>
             </form>
+            <br>
             <form id="sidebar-2" method="post" action="feathersPage.jsp">
                 <label>
                     <button type="submit" class="sidebar-button">Feathers</button>
@@ -117,10 +118,10 @@
             <form id="send-message" method="get" action="epistlesPage.jsp">
                 <div class="message-input">
                     <label>
-                        <input type="text" id="new-title" name="title" placeholder="Title..."/>
+                        <textarea id="new-title" name="title" placeholder="Title..."></textarea>
                     </label>
                     <label>
-                        <input type="text" id="new-message" name="message" placeholder="Write a message..."/>
+                        <textarea id="new-message" name="message1" placeholder="Write a message..."></textarea>
                     </label>
                     <button type="submit" id="send-button">Send</button>
                 </div>
@@ -137,7 +138,7 @@
             %>
             <div class="notification">
                 <h3>ID: <%= notification.getNoteID()%></h3>
-                <h2 onclick="showDetails(<%= notification.getNoteID()%>)">Title: <%= notification.getTitle() %></h2>
+                <h2><a href="details.jsp?noteID=<%= notification.getNoteID()%>">Title: <%= notification.getTitle() %></a></h2>
                 <h3>Type: <%= notification.getType() %></h3>
                 <h3>Publisher ID: <%= notification.getPublisherID() %></h3>
                 <h3>Release Time: <%= notification.getReleaseDate() %></h3>

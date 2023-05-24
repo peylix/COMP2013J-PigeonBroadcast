@@ -59,7 +59,7 @@
 <div class="home-page">
     <div class="sidebar">
         <div class="user-info">
-            <a href="userInfo.jsp">
+            <a href="home.jsp">
                 <img id="Pigeon" src="<%=profilePhoto%>" alt="Pigeon">
             </a>
             <h3 id="userName"><%=userName%></h3>
@@ -71,6 +71,7 @@
                     <button type="submit" class="sidebar-button">Epistles</button>
                 </label>
             </form>
+            <br>
             <form id="sidebar-2" method="post" action="feathersPage.jsp">
                 <label>
                     <button type="submit" class="sidebar-button">Feathers</button>
@@ -96,15 +97,15 @@
             <form id="send-message" method="get" action="modifyNotification.jsp">
                 <div class="message-input">
                     <label>
-                        <input type="text" id="new-title" name="title" placeholder="New Title..."/>
+                        <textarea id="new-title" name="title" placeholder="New Title..."></textarea>
                     </label>
                     <label>
-                        <input type="text" id="new-message" name="message" placeholder="Write a new message..."/>
+                        <textarea id="new-message" name="message1" placeholder="Write a new message..."></textarea>
                     </label>
                     <button type="submit" id="send-button">Done</button>
                 </div>
             </form>
-            <div class="notification">
+            <div class="old-notification">
                 <h3>ID: <%= notification.getNoteID()%></h3>
                 <%--                <% session.setAttribute("noteID", notification.getNoteID()); %>--%>
                 <h2><a href="details.jsp?noteID=<%= notification.getNoteID()%>">Title: <%= notification.getTitle() %></a></h2>

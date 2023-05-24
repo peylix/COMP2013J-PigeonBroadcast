@@ -124,12 +124,16 @@ body {
 }
 
 .main-content .notice-content {
+    margin-left: 10px;
+    margin-right: 10px;
     padding: 20px;
-    height: calc(100% - 40px);  /* Subtract padding from height */
-    overflow-y: auto;  /* Allow scrolling on the notice content */
-    scrollbar-color: #555 #222;  /* Dark scrollbar */
+    height: calc(100% - 40px);
+    overflow-y: auto;
+    scrollbar-color: #555 #222;
+    background-color: #333;
+    border-radius: 15px;
+    max-height: 600px;
 }
-
 
 .main-content .info-bar {
     background-color: #222;  /* Darker info bar background */
@@ -138,7 +142,25 @@ body {
     text-align: center;
 }
 
-.main-content .notice-content .user-changeInfo {
+.main-content .info-content {
+    padding: 20px;
+    height: calc(100% - 40px);  /* Subtract padding from height */
+    overflow-y: auto;  /* Allow scrolling on the notice content */
+    scrollbar-color: #555 #222;  /* Dark scrollbar */
+}
+
+.main-content .info-content .notice-title {
+    font-size: 1.2em;
+    color: dodgerblue;
+    margin-top: 20px;
+}
+
+.main-content .info-content .notice-description {
+    color: #f5f5f5;
+    margin-left: 10px;
+}
+
+.main-content .info-content .user-changeInfo {
     margin: 20px auto;  /* Centers the content area */
     padding: 20px;  /* Adds some inner spacing */
     background-color: #333;  /* Darker background for the content area */
@@ -146,12 +168,12 @@ body {
     box-shadow: 0 0 10px rgba(0,0,0,0.5);  /* Shadow for depth */
 }
 
-.main-content .notice-content .user-changeInfo .form {
+.main-content .info-content .user-changeInfo .form {
     display: flex;
 }
 
 
-.main-content .notice-content .form input[type='text'] {
+.main-content .info-content .form input[type='text'] {
     padding: 10px;
     background-color: #444;
     border: none;
@@ -159,14 +181,14 @@ body {
     border-radius: 5px;
 }
 
-.main-content .notice-content .form #choosePhoto {
+.main-content .info-content .form #choosePhoto {
     width: 100px;  /* Adjust the width of the image as needed */
     height: 100px;  /* Adjust the height of the image as needed */
     object-fit: cover;  /* Ensures the image maintains its aspect ratio */
     border-radius: 50%;  /* Makes the image circular */
 }
 
-.main-content .notice-content .form button {
+.main-content .info-content .form button {
     padding: 10px 20px;
     background-color: dodgerblue;
     border: none;
@@ -176,24 +198,24 @@ body {
     transition: background 0.3s;
 }
 
-.main-content .notice-content .form button:hover {
+.main-content .info-content .form button:hover {
     background-color: #f5f5f5;
     color: dodgerblue;
 }
-.main-content .notice-content .user-basic-info {
+.main-content .info-content .user-basic-info {
     background-color: #333;
     border-radius: 10px;
     padding: 20px;
     margin-bottom: 20px;
 }
 
-.main-content .notice-content .user-notification-list {
+.main-content .info-content .user-notification-list {
     background-color: #333;
     border-radius: 10px;
     padding: 20px;
 }
 
-.main-content .notice-content .user-notification-list .notification-card {
+.main-content .info-content .user-notification-list .notification-card {
     background-color: #444;
     border-radius: 10px;
     padding: 20px;

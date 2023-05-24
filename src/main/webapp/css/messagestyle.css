@@ -129,44 +129,65 @@ body {
 
 .main-content .notice-content {
     padding: 20px;
-    overflow-y: scroll;
+    max-height: 80%; /* Limit the height of the content area */
+    overflow-y: auto; /* Add scroll if the content exceeds the max height */
     scrollbar-color: #555 #222;  /* Dark scrollbar */
 }
 
-/* ... previous CSS ... */
-
-/* Message Input Box */
 .message-input {
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding: 1px;
+    padding: 10px;
     border-radius: 10px;
     background-color: #444;
-    margin-bottom: 20px; /* Space between input box and messages */
+    margin-bottom: 20px;
 }
 
-.message-input input[type='text'] {
-    width: 45%;
-    margin-right: 10px;
-}
-
-.message-input input[type='text'] {
-    flex-grow: 1; /* Allows input to take up remaining space */
+.message-input textarea {
+    overflow-wrap: break-word;
     background: transparent;
     border: none;
     color: #f5f5f5;
     padding: 10px 20px;
-    margin-right: 10px;
     border-radius: 15px;
+    resize: vertical;
+    box-sizing: border-box;  /* Include padding and border in element's total width */
+}
+
+.message-input textarea[name='title'] {
+    width: 150%;
+    margin-right: 5%;  /* Adjust this value to change the space between title and message */
+}
+
+.message-input textarea[name='message1'] {
+    width: 350%;
+    margin-left: -100%;
+}
+
+.message-input textarea[name='message2'] {
+    width: 350%;
+    margin-left: 23%;
+}
+
+.message-input select {
+    width: 5%;
+    border: none;
+    border-radius: 10px;
+    background: #f5f5f5;
+    color: #444;
+    margin-left: 40%;
+    margin-right: -6%/* Adjust this value to change the space between select and send */
 }
 
 .message-input button {
+    width: 5%;
     background: #f5f5f5;
     border: none;
     color: #444;
     padding: 10px;
-    border-radius: 50%;
+    border-radius: 10px;
     cursor: pointer;
     transition: background 0.3s;
 }
@@ -175,6 +196,7 @@ body {
     background: dodgerblue;
     color: #f5f5f5;
 }
+
 
 /* Message Boxes */
 .message-box {
@@ -216,12 +238,21 @@ body {
     background-color: #007ad9;
 }
 
+.old-notification {
+    background-color: #444;
+    border-radius: 15px;
+    margin-bottom: 15px;
+    padding: 10px;
+    max-height: 100%; /* Adjust as needed */
+    overflow-y: auto;
+}
+
 .notification {
     background-color: #444;
     border-radius: 15px;
     margin-bottom: 15px;
     padding: 10px;
-    max-height: 250px;  /* Adjust as needed */
+    max-height: 300px;  /* Adjust as needed */
     overflow-y: auto;
 }
 .notification .modify-button,
