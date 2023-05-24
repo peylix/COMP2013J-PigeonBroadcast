@@ -122,14 +122,21 @@
                     <label>
                         <textarea id="new-title" name="title" placeholder="Title..."></textarea>
                     </label>
-                    <label>
-                        <textarea id="new-message" name="message2" placeholder="Write a message..."></textarea>
-                    </label>
+
                     <% if (isOrgAdmin) { %>
-                    <select name="type">
-                        <option value="personal">Personal</option>
-                        <option value="organization">Organization</option>
-                    </select>
+                    <label>
+                        <textarea id="new-message2" name="message2" placeholder="Write a message..."></textarea>
+                    </label>
+                    <label>
+                        <select name="type">
+                            <option value="personal">Personal</option>
+                            <option value="organization">Organization</option>
+                        </select>
+                    </label>
+                    <% } else {%>
+                    <label>
+                        <textarea id="new-message1" name="message1" placeholder="Write a message..."></textarea>
+                    </label>
                     <% } %>
                     <button type="submit" id="send-button">Send</button>
                 </div>
