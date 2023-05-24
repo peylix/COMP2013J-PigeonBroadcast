@@ -1,4 +1,5 @@
 <%@ page import="pb.pojo.User" %>
+<%@ page import="java.util.Objects" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
 <!DOCTYPE html>
@@ -15,6 +16,14 @@
   String userName = user.getUserName();
   int userID = user.getUserID();
   String profilePhoto = user.getProfilePhoto();
+  String userIdentity;
+  if (Objects.equals(user.getIdentity(), "admin")) {
+    userIdentity = "Administrative Staff";
+  } else if (Objects.equals(user.getIdentity(), "teacher")) {
+    userIdentity = "Teaching Staff";
+  } else {
+    userIdentity = "Student";
+  }
 
   session.setAttribute("user", user);
 

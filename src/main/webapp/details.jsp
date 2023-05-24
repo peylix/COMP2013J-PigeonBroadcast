@@ -22,6 +22,15 @@
     int userID = user.getUserID();
     String profilePhoto = user.getProfilePhoto();
 
+    String userIdentity;
+    if (Objects.equals(user.getIdentity(), "admin")) {
+        userIdentity = "Administrative Staff";
+    } else if (Objects.equals(user.getIdentity(), "teacher")) {
+        userIdentity = "Teaching Staff";
+    } else {
+        userIdentity = "Student";
+    }
+
     session.setAttribute("user", user);
 %>
 <%
@@ -37,16 +46,26 @@
             <a href="userInfo.jsp">
                 <img id="Pigeon" src="<%=profilePhoto%>" alt="Pigeon">
             </a>
-            <h3 id="userName"><%=userName%>
-            </h3>
-            <h3 id="userID"><%=userID%>
-            </h3>
+            <h3 id="userName"><%=userName%></h3>
+            <h3 id="userID"><%=userID%></h3>
+            <h4 id="userIdentity"><%=userIdentity%></h4>
         </div>
-        <ul class="menu">
-            <li id="school-notice"><a href="epistlesPage.jsp">Epistles</a></li>
-            <li id="student-notice"><a href="feathersPage.jsp">Feathers</a></li>
-        </ul>
+        <div>
+            <form id="sidebar-1" method='post' action="epistlesPage.jsp">
+                <label>
+                    <button type="submit" class="sidebar-button">Epistles</button>
+                </label>
+            </form>
+            <form id="sidebar-2" method="post" action="feathersPage.jsp">
+                <label>
+                    <button type="submit" class="sidebar-button">Feathers</button>
+                </label>
+            </form>
+
+
+        </div>
     </div>
+
 
     <div class="search-box">
         <form id="search-input" method="get" action="search.jsp">
@@ -77,9 +96,10 @@
                     <div class="notification-body">
                         <p class="notification-content"><%= notification.getContent() %></p>
                     </div>
+                    <button class="button-back" onclick="modifyNotification()">Modify</button>
+                    <button class="button-back" onclick="deleteNotification()">Delete</button>
                     <button class="button-back" onclick="goBack()">Go Back</button>
-                    <button id="modifyButton" onclick="modifyNotification()">Modify</button>
-                    <button id="deleteButton" onclick="deleteNotification()">Delete</button>
+
                     <%
                         session.setAttribute("user", user);
                         session.setAttribute("notification", notification);

@@ -59,6 +59,25 @@ body {
     background-color: #555;  /* Lighter color on hover */
 }
 
+.sidebar-button {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    color: #f5f5f5;
+    background-color: #444;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    text-align: center;
+    transition: background-color 0.3s;
+    cursor: pointer;
+}
+
+.sidebar-button:hover {
+    background-color: #555;
+}
+
+
 .search-box {
     position: absolute;
     top: 20px;

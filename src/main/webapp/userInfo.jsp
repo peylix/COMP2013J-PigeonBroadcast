@@ -23,6 +23,14 @@
     String profilePhoto = user.getProfilePhoto();
     String userIdentity = user.getIdentity();
     String email = user.getEmail();
+    String userIdentityName;
+    if (Objects.equals(user.getIdentity(), "admin")) {
+        userIdentityName = "Administrative Staff";
+    } else if (Objects.equals(user.getIdentity(), "teacher")) {
+        userIdentityName = "Teaching Staff";
+    } else {
+        userIdentityName = "Student";
+    }
 
     if (request.getMethod().equals("POST")) {
         // 获取提交的新密码和电子邮件地址
@@ -38,7 +46,7 @@
         };
     }
 
-    String[] imagePaths = {"images/Pigeon.png", "images/StarDust.png"};
+    String[] imagePaths = {"images/Pigeon.png", "images/StarDust.png", "images/Dalek.png",  "images/Pigeon2.png"};
 %>
 
 <script>
@@ -56,19 +64,29 @@
 <div class="home-page">
     <div class="sidebar">
         <div class="user-info">
-            <a href="home.jsp">
-                <img id="profilePhoto" src="<%=profilePhoto%>" alt="Profile Photo">
+            <a href="userInfo.jsp">
+                <img id="Pigeon" src="<%=profilePhoto%>" alt="Pigeon">
             </a>
-            <h3 id="userName"><%=userName%>
-            </h3>
-            <h3 id="userID"><%=userID%>
-            </h3>
+            <h3 id="userName"><%=userName%></h3>
+            <h3 id="userID"><%=userID%></h3>
+            <h4 id="userIdentityName"><%=userIdentityName%></h4>
         </div>
-        <ul class="menu">
-            <li id="school-notice"><a href="epistlesPage.jsp">Epistles</a></li>
-            <li id="student-notice"><a href="feathersPage.jsp">Feathers</a></li>
-        </ul>
+        <div>
+            <form id="sidebar-1" method='post' action="epistlesPage.jsp">
+                <label>
+                    <button type="submit" class="sidebar-button">Epistles</button>
+                </label>
+            </form>
+            <form id="sidebar-2" method="post" action="feathersPage.jsp">
+                <label>
+                    <button type="submit" class="sidebar-button">Feathers</button>
+                </label>
+            </form>
+
+
+        </div>
     </div>
+
     <div class="search-box">
         <input type="text" placeholder="Search..."/>
         <button type="submit">
