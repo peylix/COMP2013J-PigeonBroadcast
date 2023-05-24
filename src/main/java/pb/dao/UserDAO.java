@@ -10,6 +10,8 @@ import pb.tool.JDBCTool;
 import pb.pojo.User;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public class UserDAO {
@@ -72,5 +74,35 @@ public class UserDAO {
         }
 
         return updated;
+    }
+
+    public static User getUserByID(int id) {
+        User user = null;
+
+        try {
+            Connection conn = JDBCTool.getConnection();
+            String query = "SELECT * FROM user WHERE userID = ?";
+            PreparedStatement pst = conn.prepareStatement(query);
+            pst.setInt(1, id);
+
+            ResultSet rs = pst.executeQuery();
+
+            if (rs.next()) {
+
+                int userID = rs.getInt("userID");
+                String password = rs.getString("password");
+                String userName = rs.getString("userName");
+                String profilePhoto = rs.getString("profilePhoto");
+                String email = rs.getString("email");
+                String identity = rs.getString("identity");
+
+                user = new User(userID, password, userName, profilePhoto, email, identity);
+            }
+            pst.close();
+            conn.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return user;
     }
 }
