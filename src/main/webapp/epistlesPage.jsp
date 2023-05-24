@@ -93,7 +93,7 @@
 
     <div class="main-content">
         <div class="info-bar">
-            <h2 id="homepage">Search Result</h2>
+            <h2 id="homepage">Epistles</h2>
         </div>
         <div class="notice-content">
             <form id="send-message" method="get" action="epistlesPage.jsp">
@@ -123,6 +123,7 @@
                 <h3>Type: <%= notification.getType() %></h3>
                 <h3>Publisher ID: <%= notification.getPublisherID() %></h3>
                 <h3>Release Time: <%= notification.getReleaseDate() %></h3>
+
             </div>
             <%
                 }

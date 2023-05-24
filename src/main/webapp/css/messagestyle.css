@@ -206,6 +206,18 @@ body {
     max-height: 250px;  /* Adjust as needed */
     overflow-y: auto;
 }
+.notification .modify-button,
+.notification .delete-button {
+    background-color: dodgerblue;
+    color: #f5f5f5;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    position: absolute; /* Position buttons absolutely inside message box */
+    bottom: 10px; /* Position at the bottom of the box */
+}
 
 .notification h2, .notification h3 {
     margin: 10px 0;
