@@ -22,6 +22,15 @@
 
     Notification notification = (Notification) session.getAttribute("notification");
 
+    String userIdentityName;
+    if (Objects.equals(user.getIdentity(), "admin")) {
+        userIdentityName = "Administrative Staff";
+    } else if (Objects.equals(user.getIdentity(), "teacher")) {
+        userIdentityName = "Teaching Staff";
+    } else {
+        userIdentityName = "Student";
+    }
+
     String title;
     String message;
     int noteID;
@@ -64,6 +73,7 @@
             </a>
             <h3 id="userName"><%=userName%></h3>
             <h3 id="userID"><%=userID%></h3>
+            <h4 id="userIdentityName"><%=userIdentityName%></h4>
         </div>
         <div>
             <form id="sidebar-1" method='post' action="epistlesPage.jsp">
@@ -117,18 +127,7 @@
         </div>
     </div>
 </div>
-<%--<form method="get" action="modifyNotification.jsp">--%>
-<%--    <input type="hidden" name="noteId" value="<%=noteID%>"/>--%>
-<%--    <label>--%>
-<%--        Title:--%>
-<%--        <input type="text" name="title" value="<%=notification.getTitle()%>"/>--%>
-<%--    </label>--%>
-<%--    <label>--%>
-<%--        Message:--%>
-<%--        <input type="text" name="message" value="<%=notification.getContent()%>"/>--%>
-<%--    </label>--%>
-<%--    <button type="submit">Update</button>--%>
-<%--</form>--%>
+
 </body>
 </html>
 

@@ -46,7 +46,8 @@
         };
     }
 
-    String[] imagePaths = {"images/Pigeon.png", "images/StarDust.png", "images/Dalek.png",  "images/Pigeon2.png"};
+    String[] imagePaths = {"images/Pigeon.png", "images/StarDust.png", "images/Dalek.png",
+            "images/Pigeon2.png", "images/Alex.png", "images/Apple.png", "images/Horse.png"};
 %>
 
 <script>
