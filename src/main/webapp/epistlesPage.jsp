@@ -91,7 +91,6 @@
                     <button type="submit" class="sidebar-button">Epistles</button>
                 </label>
             </form>
-            <br>
             <form id="sidebar-2" method="post" action="feathersPage.jsp">
                 <label>
                     <button type="submit" class="sidebar-button">Feathers</button>
