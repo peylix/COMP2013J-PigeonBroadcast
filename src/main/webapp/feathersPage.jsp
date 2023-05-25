@@ -136,6 +136,7 @@
                     <label>
                         <textarea id="new-message1" class="message1" name="message" placeholder="Write a message..."></textarea>
                     </label>
+                    <input type="hidden" name="type" value="personal">
                     <% } %>
                     <button type="submit" id="send-button">Send</button>
                 </div>
