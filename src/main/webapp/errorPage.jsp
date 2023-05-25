@@ -36,24 +36,23 @@
             <a href="home.jsp">
                 <img id="Pigeon" src="<%=profilePhoto%>" alt="Pigeon">
             </a>
-            <h3 id="userName"><%=userName%>
-            </h3>
-            <h3 id="userID"><%=userID%>
-            </h3>
+            <h3 id="userName"><%=userName%></h3>
+            <h3 id="userID"><%=userID%></h3>
+            <h4 id="userIdentity"><%=userIdentity%></h4>
         </div>
-
         <div>
             <form id="sidebar-1" method='post' action="epistlesPage.jsp">
                 <label>
-                    <button type="submit">Epistles</button>
+                    <button type="submit" class="sidebar-button">Epistles</button>
                 </label>
             </form>
             <br>
             <form id="sidebar-2" method="post" action="feathersPage.jsp">
                 <label>
-                    <button type="submit">Feathers</button>
+                    <button type="submit" class="sidebar-button">Feathers</button>
                 </label>
             </form>
+
 
         </div>
     </div>
@@ -71,7 +70,11 @@
         </div>
         <div class="notice-content">
             <h1>Ah... Something goes wrong... Let's press </h1>
-            <button id="home"><a href="home.jsp">THIS BUTTON</a></button>
+            <form id="back-home" method='post' action="home.jsp">
+                <label>
+                    <button type="submit" class="sidebar-button">THIS BUTTON</button>
+                </label>
+            </form>
             <h1> to go home!</h1>
         </div>
     </div>

@@ -90,8 +90,8 @@
                         </div>
                         <div class="notification-info">
                             <h2 class="notification-title"><%= notification.getTitle() %></h2>
-                            <h4 class="notification-release-time">发布时间: <%= notification.getReleaseDate() %></h4>
-                            <h4 class="notification-type">类型: <%= notification.getType() %></h4>
+                            <h4 class="notification-release-time">Release Date: <%= notification.getReleaseDate() %></h4>
+                            <h4 class="notification-type">Type: <%= notification.getType() %></h4>
                         </div>
                     </div>
                     <div class="notification-body">

@@ -100,7 +100,7 @@
                         <textarea id="new-title" name="title" placeholder="New Title..."></textarea>
                     </label>
                     <label>
-                        <textarea id="new-message" name="message1" placeholder="Write a new message..."></textarea>
+                        <textarea id="new-message" class="message1" name="message" placeholder="Write a new message..."></textarea>
                     </label>
                     <button type="submit" id="send-button">Done</button>
                 </div>
