@@ -1,4 +1,4 @@
-        <%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
 <%@ page import="pb.pojo.User" %>
 <%@ page import="pb.dao.NotificationDAO" %>
@@ -46,14 +46,11 @@
 
     String title;
     String message;
-    boolean isOrgAdmin = false;
-    if (OrganizationDAO.getOrganizationByUserID(user.getUserID()).size() != 0) {
-        isOrgAdmin = true;
-    }
+    boolean isOrgAdmin = OrganizationDAO.getOrganizationByUserID(user.getUserID()).size() != 0;
     if ("GET".equalsIgnoreCase(request.getMethod())) {
         title = request.getParameter("title");
-        message = request.getParameter("message2");
         String type = request.getParameter("type");
+        message =  request.getParameter("message");
 
         // Check if the title and message are not empty
         if (title != null && !title.trim().isEmpty() && message != null && !message.trim().isEmpty()) {
@@ -83,9 +80,12 @@
             <a href="home.jsp">
                 <img id="Pigeon" src="<%=profilePhoto%>" alt="Pigeon">
             </a>
-            <h3 id="userName"><%=userName%></h3>
-            <h3 id="userID"><%=userID%></h3>
-            <h4 id="userIdentity"><%=userIdentity%></h4>
+            <h3 id="userName"><%=userName%>
+            </h3>
+            <h3 id="userID"><%=userID%>
+            </h3>
+            <h4 id="userIdentity"><%=userIdentity%>
+            </h4>
         </div>
         <div>
             <form id="sidebar-1" method='post' action="epistlesPage.jsp">
@@ -122,10 +122,9 @@
                     <label>
                         <textarea id="new-title" name="title" placeholder="Title..."></textarea>
                     </label>
-
                     <% if (isOrgAdmin) { %>
                     <label>
-                        <textarea id="new-message2" name="message2" placeholder="Write a message..."></textarea>
+                        <textarea id="new-message2" class="message2" name="message" placeholder="Write a message..."></textarea>
                     </label>
                     <label>
                         <select name="type">
@@ -135,7 +134,7 @@
                     </label>
                     <% } else {%>
                     <label>
-                        <textarea id="new-message1" name="message1" placeholder="Write a message..."></textarea>
+                        <textarea id="new-message1" class="message1" name="message" placeholder="Write a message..."></textarea>
                     </label>
                     <% } %>
                     <button type="submit" id="send-button">Send</button>
@@ -152,11 +151,16 @@
                     Notification notification = notifications.get(i);
             %>
             <div class="notification">
-                <h3>ID: <%=notification.getNoteID()%></h3>
-                <h2><a href="details.jsp?noteID=<%=notification.getNoteID()%>">Title: <%=notification.getTitle()%></a></h2>
-                <h3>Type: <%=notification.getType()%></h3>
-                <h3>Publisher ID: <%=notification.getPublisherID()%></h3>
-                <h3>Release Time: <%=notification.getReleaseDate()%></h3>
+                <h3>ID: <%=notification.getNoteID()%>
+                </h3>
+                <h2><a href="details.jsp?noteID=<%=notification.getNoteID()%>">Title: <%=notification.getTitle()%>
+                </a></h2>
+                <h3>Type: <%=notification.getType()%>
+                </h3>
+                <h3>Publisher ID: <%=notification.getPublisherID()%>
+                </h3>
+                <h3>Release Time: <%=notification.getReleaseDate()%>
+                </h3>
 
             </div>
             <%
@@ -172,7 +176,8 @@
                 <%
                 } else {
                 %>
-                <a href="epistlesPage.jsp?currentPage=<%=i%>&"><%=i%></a>
+                <a href="epistlesPage.jsp?currentPage=<%=i%>&"><%=i%>
+                </a>
                 <%
                         }
                     }

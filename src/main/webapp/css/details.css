@@ -81,6 +81,7 @@ body {
     position: absolute;
     top: 20px;
     right: 20px;
+    height: 4%;
     display: inline-flex;
     align-items: center;
     background: #444;
@@ -95,6 +96,7 @@ body {
     color: #f5f5f5;
     padding: 10px 20px;
     margin-right: 10px;
+    margin-top: 15px;
     border-radius: 15px;
 }
 
@@ -102,6 +104,7 @@ body {
     background: #f5f5f5;
     border: none;
     color: #444;
+    margin-bottom: 10px;
     padding: 10px;
     border-radius: 50%;
     cursor: pointer;

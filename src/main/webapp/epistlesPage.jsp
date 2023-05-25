@@ -46,7 +46,7 @@
     String message;
     if ("GET".equalsIgnoreCase(request.getMethod())) {
         title = request.getParameter("title");
-        message = request.getParameter("message2");
+        message = request.getParameter("message");
 
         // Check if the title and message are not empty
         if (title != null && !title.trim().isEmpty() && message != null && !message.trim().isEmpty()) {
@@ -121,7 +121,7 @@
                         <textarea id="new-title" name="title" placeholder="Title..."></textarea>
                     </label>
                     <label>
-                        <textarea id="new-message" name="message1" placeholder="Write a message..."></textarea>
+                        <textarea id="new-message" class="message1" name="message" placeholder="Write a message..."></textarea>
                     </label>
                     <button type="submit" id="send-button">Send</button>
                 </div>

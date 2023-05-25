@@ -81,7 +81,8 @@ body {
     position: absolute;
     top: 20px;
     right: 20px;
-    display: inline-flex;
+    height: 4%;
+    display: flex;
     align-items: center;
     background: #444;
     border-radius: 25px;
@@ -95,6 +96,7 @@ body {
     color: #f5f5f5;
     padding: 10px 20px;
     margin-right: 10px;
+    margin-top: 15px;
     border-radius: 15px;
 }
 
@@ -102,6 +104,7 @@ body {
     background: #f5f5f5;
     border: none;
     color: #444;
+    margin-top: -30px;
     padding: 10px;
     border-radius: 50%;
     cursor: pointer;
@@ -161,24 +164,26 @@ body {
     margin-right: 5%;  /* Adjust this value to change the space between title and message */
 }
 
-.message-input textarea[name='message1'] {
+.message-input textarea[class='message1'] {
     width: 350%;
-    margin-left: -100%;
+    margin-left: -120%;
+    margin-right: 120%;
 }
 
-.message-input textarea[name='message2'] {
+.message-input textarea[class='message2'] {
     width: 350%;
-    margin-left: 23%;
+    margin-left: -45%;
+    margin-right: 45%;
 }
 
 .message-input select {
-    width: 5%;
+    width: 70%;
     border: none;
     border-radius: 10px;
     background: #f5f5f5;
     color: #444;
-    margin-left: 40%;
-    margin-right: -6%/* Adjust this value to change the space between select and send */
+    margin-left: 233%;
+    margin-right: -233%;
 }
 
 .message-input button {
