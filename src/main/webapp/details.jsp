@@ -97,8 +97,10 @@
                     <div class="notification-body">
                         <p class="notification-content"><%= notification.getContent() %></p>
                     </div>
-                    <button class="button-back" onclick="modifyNotification()">Modify</button>
-                    <button class="button-back" onclick="deleteNotification()">Delete</button>
+                    <% if (notification.getPublisherID() == userID) { %>
+                        <button class="button-back" onclick="modifyNotification()">Modify</button>
+                        <button class="button-back" onclick="deleteNotification()">Delete</button>
+                    <% } %>
                     <button class="button-back" onclick="goBack()">Go Back</button>
 
                     <%
