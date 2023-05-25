@@ -99,6 +99,7 @@
                     </div>
                     <% if (notification.getPublisherID() == userID) { %>
                         <button class="button-back" onclick="modifyNotification()">Modify</button>
+                        <% session.setAttribute("notif-type", notification.getType()); %>
                         <button class="button-back" onclick="deleteNotification()">Delete</button>
                     <% } %>
                     <button class="button-back" onclick="goBack()">Go Back</button>

@@ -6,6 +6,8 @@
 <%@ page import="pb.pojo.Notification" %>
 <%@ page import="java.time.LocalDateTime" %>
 <%@ page import="java.sql.Timestamp" %>
+<%@ page import="pb.pojo.OrgMembers" %>
+<%@ page import="pb.dao.OrgMembersDAO" %>
 <html>
 
 <head>
@@ -45,9 +47,7 @@
             LocalDateTime now = LocalDateTime.now();
             Timestamp time = Timestamp.valueOf(now);
 
-            String type = null;
-            if (Objects.equals(user.getIdentity(), "admin")) type = "school";
-            else if (Objects.equals(user.getIdentity(), "teacher")) type = "course";
+            String type = (String) session.getAttribute("notif-type");
 
             if (type != null) {
                 Notification notif = new Notification(title, message, type, time, user.getUserID());

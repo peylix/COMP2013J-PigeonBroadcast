@@ -58,8 +58,13 @@
             Timestamp time = Timestamp.valueOf(now);
 
             if (type == null || type.equals("personal") || (type.equals("organization") && isOrgAdmin)) {
-                Notification notif = new Notification(title, message, type, time, user.getUserID());
-                NotificationDAO.insertNotification(notif);
+                if (Objects.equals(user.getIdentity(), "student")) {
+                    Notification notif = new Notification(title, message, type, time, user.getUserID());
+                    NotificationDAO.insertNotification(notif);
+                } else {
+                    out.print("Unable to send message. Perhaps you do not have the permission.");
+                }
+
             } else {
                 out.print("Unable to send message. Perhaps you do not have the permission.");
             }
