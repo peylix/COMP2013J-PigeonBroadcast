@@ -34,7 +34,6 @@
     session.setAttribute("user", user);
 %>
 <%
-    // 获取搜索信息
     List<Notification> notifications = new ArrayList<>();
     String searchInput = request.getParameter("searchInput");
     if (searchInput == null || searchInput.trim().isEmpty()) {
@@ -51,7 +50,7 @@
                         int noteID = Integer.parseInt(info);
                         notifications.addAll(NotificationDAO.getNotificationByID(noteID));
                     } catch (NumberFormatException e) {
-                        // 警告
+                        // Warning
                     }
                     break;
                 case "TI":
@@ -68,7 +67,7 @@
                         Timestamp timestamp = Timestamp.valueOf(info);
                         notifications.addAll(NotificationDAO.getNotificationByReleaseTime(timestamp));
                     } catch (IllegalArgumentException e) {
-                        // 警告
+                        // Warning
                     }
                     break;
                 case "PI":
@@ -76,11 +75,11 @@
                         int publisherID = Integer.parseInt(info);
                         notifications.addAll(NotificationDAO.getNotificationByPublisherID(publisherID));
                     } catch (NumberFormatException e) {
-                        // 警告
+                        // Warning
                     }
                     break;
                 default:
-                    // 警告
+                    // Warning
                     break;
             }
         } else {
@@ -180,12 +179,10 @@
 
 <script>
     function showDetails(id) {
-        // Send an AJAX request to fetch the details
         const xhr = new XMLHttpRequest();
         xhr.open('GET', 'details.jsp?noteID=' + id, true);
         xhr.onload = function() {
             if (this.status === 200) {
-                // Replace the content of the notice-content div with the details
                 document.querySelector('.notice-content').innerHTML = this.responseText;
             }
         };
