@@ -52,6 +52,14 @@
                     <button type="submit" class="sidebar-button">Feathers</button>
                 </label>
             </form>
+            <br>
+            <br>
+            <br>
+            <form id="sidebar-3" method="post" action="index.jsp">
+                <label>
+                    <button type="submit" class="sidebar-button">Log out</button>
+                </label>
+            </form>
 
         </div>
     </div>
