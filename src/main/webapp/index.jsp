@@ -19,7 +19,7 @@
 <div class="login-page">
     <div class="form">
         <%--Display login box--%>
-        <form id="login-form" class="active-form" method="post" action="WEB-INF/jsp/beforelogin/login.jsp">
+        <form id="login-form" class="active-form" method="post" action="login.jsp">
             <label>
                 <input type="text" placeholder="User ID" name="userID"/>
             </label>
@@ -31,7 +31,7 @@
         </form>
 
         <%--Display registration box--%>
-        <form id="create-account-form" class="inactive-form" method="post" action="WEB-INF/jsp/beforelogin/createAccount.jsp">
+        <form id="create-account-form" class="inactive-form" method="post" action="createAccount.jsp">
             <label>
                 <input type="text" placeholder="Member ID" name="memberID"/>
             </label>

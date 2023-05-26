@@ -12,8 +12,8 @@
 <html>
 <head>
     <title>Pigeon Broadcast Search Page</title>
-    <link rel="stylesheet" href="../../../css/search-style.css">
-    <link rel="icon" href="../../../images/Pigeon.png" type="image">
+    <link rel="stylesheet" href="css/search-style.css">
+    <link rel="icon" href="images/Pigeon.png" type="image">
 </head>
 
 <%
@@ -164,7 +164,7 @@
     </div>
 </div>
 
-<%@ include file="../../footer.html" %>
+<%@ include file="WEB-INF/footer.html" %>
 
 <script>
     function showDetails(id) {

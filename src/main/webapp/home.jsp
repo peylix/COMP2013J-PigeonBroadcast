@@ -6,8 +6,8 @@
 <html>
 <head>
     <title>PigeonBroadcast Home Page</title>
-    <link rel="stylesheet" href="../../../css/home-style.css">
-    <link rel="icon" href="../../../images/Pigeon.png" type="image">
+    <link rel="stylesheet" href="css/home-style.css">
+    <link rel="icon" href="images/Pigeon.png" type="image">
 </head>
 
 <%--User home page--%>
@@ -59,7 +59,7 @@
             <br>
             <br>
             <br>
-            <form id="sidebar-3" method="post" action="../../../index.jsp">
+            <form id="sidebar-3" method="post" action="index.jsp">
                 <label>
                     <button type="submit" class="sidebar-button">Log out</button>
                 </label>
@@ -95,7 +95,7 @@
     </div>
 </div>
 
-<%@ include file="../../footer.html" %>
+<%@ include file="WEB-INF/footer.html" %>
 
 </body>
 </html>

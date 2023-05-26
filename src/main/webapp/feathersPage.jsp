@@ -16,8 +16,8 @@
 <html>
 <head>
     <title>Epistles</title>
-    <link rel="stylesheet" href="../../../css/message-style.css">
-    <link rel="icon" href="../../../images/Pigeon.png" type="image">
+    <link rel="stylesheet" href="css/message-style.css">
+    <link rel="icon" href="images/Pigeon.png" type="image">
 </head>
 
 <%
@@ -199,6 +199,6 @@
         </div>
     </div>
 </div>
-<%@ include file="../../footer.html" %>
+<%@ include file="WEB-INF/footer.html" %>
 </body>
 </html>

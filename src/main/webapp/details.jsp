@@ -12,8 +12,8 @@
 <html>
 <head>
     <title>PigeonBroadcast Details Page</title>
-    <link rel="stylesheet" href="../../../css/details-style.css">
-    <link rel="icon" href="../../../images/Pigeon.png" type="image">
+    <link rel="stylesheet" href="css/details-style.css">
+    <link rel="icon" href="images/Pigeon.png" type="image">
 </head>
 <%
     User user = (User) session.getAttribute("user");
@@ -124,7 +124,7 @@
     </div>
 </div>
 
-<%@ include file="../../footer.html" %>
+<%@ include file="WEB-INF/footer.html" %>
 
 <script>
     function goBack() {

@@ -9,8 +9,8 @@
 
 <head>
     <title>Modifying</title>
-    <link rel="stylesheet" href="../../../css/message-style.css">
-    <link rel="icon" href="../../../images/Pigeon.png" type="image">
+    <link rel="stylesheet" href="css/message-style.css">
+    <link rel="icon" href="images/Pigeon.png" type="image">
 </head>
 <%
 
