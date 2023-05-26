@@ -1,19 +1,16 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="pb.dao.NotificationDAO" %>
-<%@ page import="java.io.IOException" %>
 <%@ page import="pb.pojo.User" %>
 <%@ page import="java.util.Objects" %>
 <%@ page import="pb.pojo.Notification" %>
 <%@ page import="java.time.LocalDateTime" %>
 <%@ page import="java.sql.Timestamp" %>
-<%@ page import="pb.pojo.OrgMembers" %>
-<%@ page import="pb.dao.OrgMembersDAO" %>
 <html>
 
 <head>
     <title>Modifying</title>
-    <link rel="stylesheet" href="css/message-style.css">
-    <link rel="icon" href="images/Pigeon.png" type="image">
+    <link rel="stylesheet" href="../../../css/message-style.css">
+    <link rel="icon" href="../../../images/Pigeon.png" type="image">
 </head>
 <%
 
@@ -71,9 +68,12 @@
             <a href="home.jsp">
                 <img id="Pigeon" src="<%=profilePhoto%>" alt="Pigeon">
             </a>
-            <h3 id="userName"><%=userName%></h3>
-            <h3 id="userID"><%=userID%></h3>
-            <h4 id="userIdentityName"><%=userIdentityName%></h4>
+            <h3 id="userName"><%=userName%>
+            </h3>
+            <h3 id="userID"><%=userID%>
+            </h3>
+            <h4 id="userIdentityName"><%=userIdentityName%>
+            </h4>
         </div>
         <div>
             <form id="sidebar-1" method='post' action="epistlesPage.jsp">
@@ -109,21 +109,28 @@
                         <textarea id="new-title" name="title" placeholder="New Title..."></textarea>
                     </label>
                     <label>
-                        <textarea id="new-message" class="message1" name="message" placeholder="Write a new message..."></textarea>
+                        <textarea id="new-message" class="message1" name="message"
+                                  placeholder="Write a new message..."></textarea>
                     </label>
                     <button type="submit" id="send-button">Done</button>
                 </div>
             </form>
             <div class="old-notification">
-                <h3>ID: <%= notification.getNoteID()%></h3>
+                <h3>ID: <%= notification.getNoteID()%>
+                </h3>
                 <%--                <% session.setAttribute("noteID", notification.getNoteID()); %>--%>
-                <h2>Title: <%= notification.getTitle() %></h2>
-                <h3>Type: <%= notification.getType() %></h3>
-                <h3>Publisher ID: <%= notification.getPublisherID() %></h3>
-                <h3>Release Time: <%= notification.getReleaseDate() %></h3>
-                <h4><%= notification.getContent()%></h4>
+                <h2>Title: <%= notification.getTitle() %>
+                </h2>
+                <h3>Type: <%= notification.getType() %>
+                </h3>
+                <h3>Publisher ID: <%= notification.getPublisherID() %>
+                </h3>
+                <h3>Release Time: <%= notification.getReleaseDate() %>
+                </h3>
+                <h4><%= notification.getContent()%>
+                </h4>
                 <form action="details.jsp" method="get">
-                    <input type="hidden" name="noteID" value="<%= notification.getNoteID()%>" />
+                    <input type="hidden" name="noteID" value="<%= notification.getNoteID()%>"/>
                     <button type="submit" class="view-button">Back</button>
                 </form>
             </div>

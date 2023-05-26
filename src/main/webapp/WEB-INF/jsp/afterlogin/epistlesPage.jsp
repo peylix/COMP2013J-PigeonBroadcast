@@ -14,8 +14,8 @@
 <html>
 <head>
     <title>Epistles</title>
-    <link rel="stylesheet" href="css/message-style.css">
-    <link rel="icon" href="images/Pigeon.png" type="image">
+    <link rel="stylesheet" href="../../../css/message-style.css">
+    <link rel="icon" href="../../../images/Pigeon.png" type="image">
 </head>
 
 <%
@@ -48,7 +48,6 @@
         title = request.getParameter("title");
         message = request.getParameter("message");
 
-        // Check if the title and message are not empty
         if (title != null && !title.trim().isEmpty() && message != null && !message.trim().isEmpty()) {
             LocalDateTime now = LocalDateTime.now();
             Timestamp time = Timestamp.valueOf(now);
@@ -82,9 +81,12 @@
             <a href="home.jsp">
                 <img id="Pigeon" src="<%=profilePhoto%>" alt="Pigeon">
             </a>
-            <h3 id="userName"><%=userName%></h3>
-            <h3 id="userID"><%=userID%></h3>
-            <h4 id="userIdentity"><%=userIdentity%></h4>
+            <h3 id="userName"><%=userName%>
+            </h3>
+            <h3 id="userID"><%=userID%>
+            </h3>
+            <h4 id="userIdentity"><%=userIdentity%>
+            </h4>
         </div>
         <div>
             <form id="sidebar-1" method='post' action="epistlesPage.jsp">
@@ -115,14 +117,16 @@
             <h2 id="homepage">Epistles</h2>
         </div>
         <div class="notice-content">
-            <h3>All Epistles: <%=notificationNum%></h3>
+            <h3>All Epistles: <%=notificationNum%>
+            </h3>
             <form id="send-message" method="get" action="epistlesPage.jsp">
                 <div class="message-input">
                     <label>
                         <textarea id="new-title" name="title" placeholder="Title..."></textarea>
                     </label>
                     <label>
-                        <textarea id="new-message" class="message1" name="message" placeholder="Write a message..."></textarea>
+                        <textarea id="new-message" class="message1" name="message"
+                                  placeholder="Write a message..."></textarea>
                     </label>
                     <button type="submit" id="send-button">Send</button>
                 </div>
@@ -138,13 +142,18 @@
                     Notification notification = notifications.get(i);
             %>
             <div class="notification">
-                <h3>ID: <%= notification.getNoteID()%></h3>
-                <h2>Title: <%= notification.getTitle() %></h2>
-                <h3>Type: <%= notification.getType() %></h3>
-                <h3>Publisher ID: <%= notification.getPublisherID() %></h3>
-                <h3>Release Time: <%= notification.getReleaseDate() %></h3>
+                <h3>ID: <%= notification.getNoteID()%>
+                </h3>
+                <h2>Title: <%= notification.getTitle() %>
+                </h2>
+                <h3>Type: <%= notification.getType() %>
+                </h3>
+                <h3>Publisher ID: <%= notification.getPublisherID() %>
+                </h3>
+                <h3>Release Time: <%= notification.getReleaseDate() %>
+                </h3>
                 <form action="details.jsp" method="get">
-                    <input type="hidden" name="noteID" value="<%= notification.getNoteID()%>" />
+                    <input type="hidden" name="noteID" value="<%= notification.getNoteID()%>"/>
                     <button type="submit" class="view-button">View Details</button>
                 </form>
 
@@ -154,7 +163,6 @@
             %>
             <div class="pagination">
                 <%
-                    // Display links to other pages
                     for (int i = 1; i <= numPages; i++) {
                         if (i == currentPage) {
                 %>
@@ -162,7 +170,8 @@
                 <%
                 } else {
                 %>
-                <a href="epistlesPage.jsp?currentPage=<%= i %>&"><%= i %></a>
+                <a href="epistlesPage.jsp?currentPage=<%= i %>&"><%= i %>
+                </a>
                 <%
                         }
                     }
@@ -171,6 +180,6 @@
         </div>
     </div>
 </div>
-<%@ include file="footer.html" %>
+<%@ include file="../../footer.html" %>
 </body>
 </html>

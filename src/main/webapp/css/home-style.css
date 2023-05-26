@@ -2,27 +2,27 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 95vh;
-    background-color: #1a1a1a;  /* Dark background color */
-    color: #f5f5f5;  /* Light text color */
-    font-family: 'Helvetica Neue', Arial, sans-serif;  /* Modern font */
+    background-color: #1a1a1a; 
+    color: #f5f5f5; 
+    font-family: 'Helvetica Neue', Arial, sans-serif;
 }
 
 .home-page {
     display: flex;
-    height: 95vh;  /* 100% viewport height */
+    height: 95vh; 
     width: 100%;
-    justify-content: center;  /* Centered layout */
+    justify-content: center;
 }
 
 .sidebar {
     width: 20%;
-    background-color: #282828;  /* Darker sidebar */
-    color: #f5f5f5;  /* Light text color */
+    background-color: #282828;  
+    color: #f5f5f5;
     display: ruby;
     flex-direction: column;
     align-items: center;
     padding: 20px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.5);  /* Shadow for depth */
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
 
 .sidebar .user-info {
@@ -33,7 +33,7 @@ body {
 .sidebar .user-info img {
     width: 50%;
     border-radius: 50%;
-    box-shadow: 0 0 10px rgba(0,0,0,0.5);  /* Shadow for depth */
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
 
 .sidebar .user-info h3 {
@@ -48,15 +48,15 @@ body {
 .sidebar .menu li {
     padding: 10px;
     margin-bottom: 10px;
-    background-color: #444;  /* Darker menu item background */
+    background-color: #444;
     text-align: center;
     cursor: pointer;
-    border-radius: 5px;  /* Rounded corners for modern look */
-    transition: background-color 0.3s;  /* Smooth color transition */
+    border-radius: 5px;
+    transition: background-color 0.3s;
 }
 
 .sidebar .menu li:hover {
-    background-color: #555;  /* Lighter color on hover */
+    background-color: #555;
 }
 
 .sidebar-button {
@@ -109,7 +109,7 @@ body {
 }
 
 .search-box button:hover {
-    background: dodgerblue;  /* Corrected color name */
+    background: dodgerblue;
     color: #f5f5f5;
 }
 
@@ -118,7 +118,7 @@ body {
     width: 80%;
     background-color: #222;
     box-shadow: 0 0 10px rgba(0,0,0,0.5);
-    overflow-y: hidden;  /* Prevent scrolling on the main content */
+    overflow-y: hidden;
     padding-bottom: 80px;
 }
 
@@ -135,17 +135,17 @@ body {
 }
 
 .main-content .info-bar {
-    background-color: #222;  /* Darker info bar background */
-    color: dodgerblue;  /* Bright color for contrast */
+    background-color: #222;
+    color: dodgerblue;
     padding: 20px;
     text-align: center;
 }
 
 .main-content .info-content {
     padding: 20px;
-    height: calc(100% - 40px);  /* Subtract padding from height */
-    overflow-y: auto;  /* Allow scrolling on the notice content */
-    scrollbar-color: #555 #222;  /* Dark scrollbar */
+    height: calc(100% - 40px);
+    overflow-y: auto;
+    scrollbar-color: #555 #222;  
 }
 
 .main-content .info-content .notice-title {
@@ -160,11 +160,11 @@ body {
 }
 
 .main-content .info-content .user-changeInfo {
-    margin: 20px auto;  /* Centers the content area */
-    padding: 20px;  /* Adds some inner spacing */
-    background-color: #333;  /* Darker background for the content area */
-    border-radius: 10px;  /* Rounded corners */
-    box-shadow: 0 0 10px rgba(0,0,0,0.5);  /* Shadow for depth */
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #333;
+    border-radius: 10px;  /
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
 
 .main-content .info-content .user-changeInfo .form {
@@ -181,10 +181,10 @@ body {
 }
 
 .main-content .info-content .form #choosePhoto {
-    width: 100px;  /* Adjust the width of the image as needed */
-    height: 100px;  /* Adjust the height of the image as needed */
-    object-fit: cover;  /* Ensures the image maintains its aspect ratio */
-    border-radius: 50%;  /* Makes the image circular */
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
 }
 
 .main-content .info-content .form button {
@@ -229,9 +229,9 @@ body {
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s;
-    position: absolute; /* Position button absolutely inside the notification box */
-    top: 120px; /* Adjust this value to position the button vertically */
-    right: 50px; /* Adjust this value to position the button horizontally */
+    position: absolute;
+    top: 120px;
+    right: 50px;
 }
 
 .main-content .info-content .user-notification-list .notification-card .view-button:hover {

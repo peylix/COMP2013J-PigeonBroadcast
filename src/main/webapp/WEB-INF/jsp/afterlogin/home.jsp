@@ -6,12 +6,13 @@
 <html>
 <head>
     <title>PigeonBroadcast Home Page</title>
-    <link rel="stylesheet" href="css/home-style.css">
-    <link rel="icon" href="images/Pigeon.png" type="image">
+    <link rel="stylesheet" href="../../../css/home-style.css">
+    <link rel="icon" href="../../../images/Pigeon.png" type="image">
 </head>
 
+<%--User home page--%>
 <%
-//    获取当前登录用户信息
+    // Obtain the information about the current login user
     User user = (User) session.getAttribute("user");
     String userName = user.getUserName();
     int userID = user.getUserID();
@@ -36,9 +37,12 @@
             <a href="userInfo.jsp">
                 <img id="Pigeon" src="<%=profilePhoto%>" alt="Pigeon">
             </a>
-            <h3 id="userName"><%=userName%></h3>
-            <h3 id="userID"><%=userID%></h3>
-            <h4 id="userIdentity"><%=userIdentity%></h4>
+            <h3 id="userName"><%=userName%>
+            </h3>
+            <h3 id="userID"><%=userID%>
+            </h3>
+            <h4 id="userIdentity"><%=userIdentity%>
+            </h4>
         </div>
         <div>
             <form id="sidebar-1" method='post' action="epistlesPage.jsp">
@@ -55,7 +59,7 @@
             <br>
             <br>
             <br>
-            <form id="sidebar-3" method="post" action="index.jsp">
+            <form id="sidebar-3" method="post" action="../beforelogin/index.jsp">
                 <label>
                     <button type="submit" class="sidebar-button">Log out</button>
                 </label>
@@ -76,7 +80,6 @@
             <h2 id="homepage">PigeonBroadcast</h2>
         </div>
         <div class="notice-content">
-            <!-- The notice content will be loaded dynamically here -->
             <h2>PigeonBroadcast is an information system for posting messages inside a college.</h2>
             <h2>It allows the faculty, administrative staff and students to send and check messages.</h2>
             <h2>You can also search for messages posted by users using the search box.</h2>
@@ -85,14 +88,14 @@
             <h2>Please note:</h2>
             <h2>- If you are an administrative staff or teaching staff,
                 <br>
-                  please send your messages in Epistles;</h2>
+                please send your messages in Epistles;</h2>
             <h2>- If you are a student (or you may also be managing a club), <br>
-                  please send your messages in Feathers.</h2>
+                please send your messages in Feathers.</h2>
         </div>
     </div>
 </div>
 
-<%@ include file="footer.html" %>
+<%@ include file="../../footer.html" %>
 
 </body>
 </html>

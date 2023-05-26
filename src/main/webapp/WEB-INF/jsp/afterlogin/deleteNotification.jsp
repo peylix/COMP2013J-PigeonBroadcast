@@ -6,19 +6,17 @@
 <%
     try {
         int noteID = Integer.parseInt(request.getParameter("noteID"));
-//    User user = (User) request.getAttribute("user");
         User user = (User) session.getAttribute("user");
 
 
         boolean deleteStatus = NotificationDAO.deleteNotificationByID(noteID);
 
-        if(deleteStatus){
+        if (deleteStatus) {
             if (Objects.equals(user.getIdentity(), "admin") || Objects.equals(user.getIdentity(), "teacher")) {
                 response.sendRedirect("epistlesPage.jsp");
             } else {
                 response.sendRedirect("feathersPage.jsp");
             }
-//        response.sendRedirect("home.jsp");
         } else {
             response.sendRedirect("errorPage.jsp");
 

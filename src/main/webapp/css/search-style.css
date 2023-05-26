@@ -2,27 +2,27 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 95vh;
-    background-color: #1a1a1a;  /* Dark background color */
-    color: #f5f5f5;  /* Light text color */
-    font-family: 'Helvetica Neue', Arial, sans-serif;  /* Modern font */
+    background-color: #1a1a1a;  
+    color: #f5f5f5;  
+    font-family: 'Helvetica Neue', Arial, sans-serif;  
 }
 
 .home-page {
     display: flex;
-    height: 95vh;  /* 100% viewport height */
+    height: 95vh;  
     width: 100%;
-    justify-content: center;  /* Centered layout */
+    justify-content: center;  
 }
 
 .sidebar {
     width: 20%;
-    background-color: #282828;  /* Darker sidebar */
-    color: #f5f5f5;  /* Light text color */
+    background-color: #282828;  
+    color: #f5f5f5;  
     display: ruby;
     flex-direction: column;
     align-items: center;
     padding: 20px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.5);  /* Shadow for depth */
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);  
 }
 
 .sidebar .user-info {
@@ -33,7 +33,7 @@ body {
 .sidebar .user-info img {
     width: 50%;
     border-radius: 50%;
-    box-shadow: 0 0 10px rgba(0,0,0,0.5);  /* Shadow for depth */
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);  
 }
 
 .sidebar .user-info h3 {
@@ -48,15 +48,15 @@ body {
 .sidebar .menu li {
     padding: 10px;
     margin-bottom: 10px;
-    background-color: #444;  /* Darker menu item background */
+    background-color: #444;  
     text-align: center;
     cursor: pointer;
-    border-radius: 5px;  /* Rounded corners for modern look */
-    transition: background-color 0.3s;  /* Smooth color transition */
+    border-radius: 5px;  
+    transition: background-color 0.3s;  
 }
 
 .sidebar .menu li:hover {
-    background-color: #555;  /* Lighter color on hover */
+    background-color: #555;  
 }
 
 .sidebar-button {
@@ -112,26 +112,26 @@ body {
 }
 
 .search-box button:hover {
-    background: dodgerblue;  /* Corrected color name */
+    background: dodgerblue;  
     color: #f5f5f5;
 }
 
 
 .main-content {
     width: 80%;
-    background-color: #222;  /* Darker main content background */
-    box-shadow: 0 0 10px rgba(0,0,0,0.5);  /* Shadow for depth */
+    background-color: #222;  
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);  
 }
 
 .main-content .info-bar {
-    background-color: #222;  /* Darker info bar background */
-    color: dodgerblue;  /* Bright color for contrast */
+    background-color: #222;  
+    color: dodgerblue;  
     text-align: center;
 }
 
 .main-content .notice-content {
     padding: 20px 20px 50px;
-    box-sizing: border-box; /* Make sure padding is included in element's total height */
+    box-sizing: border-box; 
     overflow-x: hidden;
     overflow-y: hidden;
     scrollbar-color: #555 #222;
@@ -146,7 +146,7 @@ body {
     position: relative;
     margin-bottom: 15px;
     padding: 10px;
-    max-height: 250px;  /* Adjust as needed */
+    max-height: 250px;  
     overflow-y: auto;
 }
 
@@ -158,9 +158,9 @@ body {
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s;
-    position: absolute; /* Position button absolutely inside the notification box */
-    top: 80px; /* Adjust this value to position the button vertically */
-    right: 50px; /* Adjust this value to position the button horizontally */
+    position: absolute; 
+    top: 80px; 
+    right: 50px; 
 }
 
 .notification .view-button:hover {
@@ -186,9 +186,9 @@ body {
     justify-content: center;
     align-items: center;
     margin-top: 15px;
-    position: absolute;  /* New */
-    bottom: 0;  /* New */
-    width: 100%;  /* New */
+    position: absolute;  
+    bottom: 0;  
+    width: 100%;  
 }
 
 .pagination span, .pagination a {

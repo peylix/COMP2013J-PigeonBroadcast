@@ -16,8 +16,8 @@
 <html>
 <head>
     <title>Epistles</title>
-    <link rel="stylesheet" href="css/message-style.css">
-    <link rel="icon" href="images/Pigeon.png" type="image">
+    <link rel="stylesheet" href="../../../css/message-style.css">
+    <link rel="icon" href="../../../images/Pigeon.png" type="image">
 </head>
 
 <%
@@ -121,7 +121,8 @@
             <h2 id="homepage">Feathers</h2>
         </div>
         <div class="notice-content">
-            <h3>All Feathers: <%=notificationNum%></h3>
+            <h3>All Feathers: <%=notificationNum%>
+            </h3>
             <form id="send-message" method="get" action="feathersPage.jsp">
                 <div class="message-input">
                     <label>
@@ -170,7 +171,7 @@
                 <h3>Release Time: <%=notification.getReleaseDate()%>
                 </h3>
                 <form action="details.jsp" method="get">
-                    <input type="hidden" name="noteID" value="<%= notification.getNoteID()%>" />
+                    <input type="hidden" name="noteID" value="<%= notification.getNoteID()%>"/>
                     <button type="submit" class="view-button">View Details</button>
                 </form>
 
@@ -198,6 +199,6 @@
         </div>
     </div>
 </div>
-<%@ include file="footer.html" %>
+<%@ include file="../../footer.html" %>
 </body>
 </html>

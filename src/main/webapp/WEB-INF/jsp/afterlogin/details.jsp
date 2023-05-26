@@ -12,11 +12,10 @@
 <html>
 <head>
     <title>PigeonBroadcast Details Page</title>
-    <link rel="stylesheet" href="css/details-style.css">
-    <link rel="icon" href="images/Pigeon.png" type="image">
+    <link rel="stylesheet" href="../../../css/details-style.css">
+    <link rel="icon" href="../../../images/Pigeon.png" type="image">
 </head>
 <%
-    //    获取当前登录用户信息
     User user = (User) session.getAttribute("user");
     String userName = user.getUserName();
     int userID = user.getUserID();
@@ -46,9 +45,12 @@
             <a href="home.jsp">
                 <img id="Pigeon" src="<%=profilePhoto%>" alt="Pigeon">
             </a>
-            <h3 id="userName"><%=userName%></h3>
-            <h3 id="userID"><%=userID%></h3>
-            <h4 id="userIdentity"><%=userIdentity%></h4>
+            <h3 id="userName"><%=userName%>
+            </h3>
+            <h3 id="userID"><%=userID%>
+            </h3>
+            <h4 id="userIdentity"><%=userIdentity%>
+            </h4>
         </div>
         <div>
             <form id="sidebar-1" method='post' action="epistlesPage.jsp">
@@ -85,22 +87,28 @@
                     <div class="notification-header">
                         <div class="publisher-info">
                             <img src="<%=publisher.getProfilePhoto()%>" alt="Publisher Avatar" class="publisher-avatar">
-                            <h3 class="publisher-name"><%=publisher.getUserName()%></h3>
-                            <h3 class="publisher-id">ID: <%=publisher.getUserID()%></h3>
+                            <h3 class="publisher-name"><%=publisher.getUserName()%>
+                            </h3>
+                            <h3 class="publisher-id">ID: <%=publisher.getUserID()%>
+                            </h3>
                         </div>
                         <div class="notification-info">
-                            <h2 class="notification-title"><%= notification.getTitle() %></h2>
-                            <h4 class="notification-release-time">Release Date: <%= notification.getReleaseDate() %></h4>
-                            <h4 class="notification-type">Type: <%= notification.getType() %></h4>
+                            <h2 class="notification-title"><%= notification.getTitle() %>
+                            </h2>
+                            <h4 class="notification-release-time">Release Date: <%= notification.getReleaseDate() %>
+                            </h4>
+                            <h4 class="notification-type">Type: <%= notification.getType() %>
+                            </h4>
                         </div>
                     </div>
                     <div class="notification-body">
-                        <p class="notification-content"><%= notification.getContent() %></p>
+                        <p class="notification-content"><%= notification.getContent() %>
+                        </p>
                     </div>
                     <% if (notification.getPublisherID() == userID) { %>
-                        <button class="button-back" onclick="modifyNotification()">Modify</button>
-                        <% session.setAttribute("notif-type", notification.getType()); %>
-                        <button class="button-back" onclick="deleteNotification()">Delete</button>
+                    <button class="button-back" onclick="modifyNotification()">Modify</button>
+                    <% session.setAttribute("notif-type", notification.getType()); %>
+                    <button class="button-back" onclick="deleteNotification()">Delete</button>
                     <% } %>
                     <button class="button-back" onclick="goBack()">Go Back</button>
 
@@ -116,16 +124,14 @@
     </div>
 </div>
 
-<%@ include file="footer.html" %>
+<%@ include file="../../footer.html" %>
 
 <script>
     function goBack() {
-        // Reload the page to go back to the list view
         history.back();
     }
 
     function deleteNotification() {
-        // Send a GET request to deleteNotification.jsp
         window.location.href = 'deleteNotification.jsp?noteID=' + <%= noteID %>;
     }
 

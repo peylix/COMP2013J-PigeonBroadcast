@@ -40,6 +40,7 @@ public class OrganizationDAO {
 
         return organizations;
     }
+
     public static List<Organization> getOrganizationByUserID(int nid) {
         List<Organization> organizations = new ArrayList<>();
 
@@ -100,7 +101,6 @@ public class OrganizationDAO {
     }
 
 
-
     public static boolean deleteOrganizationByID(int oid) {
         boolean deleted = false;
 
@@ -153,7 +153,6 @@ public class OrganizationDAO {
 
         return inserted;
     }
-
 
 
 }

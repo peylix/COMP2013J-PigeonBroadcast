@@ -4,6 +4,7 @@
 <%@ page import="pb.dao.UserDAO" %>
 <%@ page import="java.util.Objects" %>
 
+<%--login account--%>
 <%
     if (Objects.equals(request.getParameter("userID"), "")) response.sendRedirect("index.jsp");
     else {

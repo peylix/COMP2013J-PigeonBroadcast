@@ -10,12 +10,11 @@
 <html>
 <head>
     <title>PigeonBroadcast User Page</title>
-    <link rel="stylesheet" href="css/home-style.css">
-    <link rel="icon" href="images/Pigeon.png" type="image">
+    <link rel="stylesheet" href="../../../css/home-style.css">
+    <link rel="icon" href="../../../images/Pigeon.png" type="image">
 </head>
 
 <%
-    //    获取当前登录用户信息
     User user = (User) session.getAttribute("user");
     int userID = user.getUserID();
     String userName = user.getUserName();
@@ -42,23 +41,24 @@
 
         // update the database
         if (UserDAO.updateUserInfo(user, newPassword, newProfilePhoto, newEmail)) {
-            user = UserDAO.login(user.getUserID(), newPassword);  // get the newly updated user info
-            session.setAttribute("user", user);  // put the updated user into session
+            user = UserDAO.login(user.getUserID(), newPassword);
+            session.setAttribute("user", user);
             response.sendRedirect("home.jsp");
-        };
+        }
+        ;
     }
 
+    // Information about the profile picture path
     String[] imagePaths = {"images/Pigeon.png", "images/StarDust.png", "images/Dalek.png",
             "images/Pigeon2.png", "images/Alex.png", "images/Apple.png", "images/Horse.png"};
 %>
 
 <script>
-
     function changeImage() {
         let imageSelect = document.getElementById('imageSelect');
         let choosePhoto = document.getElementById('choosePhoto');
 
-        // 更新当前显示的图片
+        // Update the image currently displayed
         choosePhoto.src = imageSelect.value;
     }
 </script>
@@ -70,9 +70,12 @@
             <a href="home.jsp">
                 <img id="Pigeon" src="<%=profilePhoto%>" alt="Pigeon">
             </a>
-            <h3 id="userName"><%=userName%></h3>
-            <h3 id="userID"><%=userID%></h3>
-            <h4 id="userIdentityName"><%=userIdentityName%></h4>
+            <h3 id="userName"><%=userName%>
+            </h3>
+            <h3 id="userID"><%=userID%>
+            </h3>
+            <h4 id="userIdentityName"><%=userIdentityName%>
+            </h4>
         </div>
         <div>
             <form id="sidebar-1" method='post' action="epistlesPage.jsp">
@@ -103,9 +106,12 @@
         </div>
         <div class="info-content">
             <div class="user-basic-info">
-                <p>User ID: <%=userID%></p>
-                <p>User Name: <%=userName%></p>
-                <p>User Identity: <%=userIdentity%></p>  <!-- Suppose we have userType from the User object -->
+                <p>User ID: <%=userID%>
+                </p>
+                <p>User Name: <%=userName%>
+                </p>
+                <p>User Identity: <%=userIdentity%>
+                </p>  <!-- Suppose we have userType from the User object -->
             </div>
 
             <div class="user-changeInfo">
@@ -137,19 +143,25 @@
             </div>
 
             <div class="user-notification-list">
-                <h3>Your Notifications: <%=notificationNum%></h3>
+                <h3>Your Notifications: <%=notificationNum%>
+                </h3>
                 <%
                     List<Notification> userNotifications = NotificationDAO.getNotificationByPublisherID(userID);
                     for (Notification notification : userNotifications) {
                 %>
                 <div class="notification-card">
-                    <h3>ID: <%= notification.getNoteID()%></h3>
-                    <h2>Title: <%= notification.getTitle() %></h2>
-                    <h3>Type: <%= notification.getType() %></h3>
-                    <h3>Publisher ID: <%= notification.getPublisherID() %></h3>
-                    <h3>Release Time: <%= notification.getReleaseDate() %></h3>
+                    <h3>ID: <%= notification.getNoteID()%>
+                    </h3>
+                    <h2>Title: <%= notification.getTitle() %>
+                    </h2>
+                    <h3>Type: <%= notification.getType() %>
+                    </h3>
+                    <h3>Publisher ID: <%= notification.getPublisherID() %>
+                    </h3>
+                    <h3>Release Time: <%= notification.getReleaseDate() %>
+                    </h3>
                     <form action="details.jsp" method="get">
-                        <input type="hidden" name="noteID" value="<%= notification.getNoteID()%>" />
+                        <input type="hidden" name="noteID" value="<%= notification.getNoteID()%>"/>
                         <button type="submit" class="view-button">View Details</button>
                     </form>
                 </div>
@@ -161,14 +173,13 @@
     </div>
 </div>
 
-<%@ include file="footer.html" %>
+<%@ include file="../../footer.html" %>
 
 <script>
     function changeImage() {
         let imageSelect = document.getElementById('imageSelect');
         let choosePhoto = document.getElementById('choosePhoto');
 
-        // 更新当前显示的图片为选中的头像
         choosePhoto.src = imageSelect.options[imageSelect.selectedIndex].value;
     }
 

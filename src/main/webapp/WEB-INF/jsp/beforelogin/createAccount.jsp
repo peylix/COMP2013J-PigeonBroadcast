@@ -3,6 +3,7 @@
 <%@ page import="pb.dao.SchoolMembersDAO" %>
 <%@ page import="java.util.Objects" %>
 
+<%--Create a user--%>
 <%
     if (Objects.equals(request.getParameter("memberID"), "")) response.sendRedirect("index.jsp");
     else {

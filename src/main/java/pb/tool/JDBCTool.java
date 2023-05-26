@@ -14,7 +14,7 @@ public class JDBCTool {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection conn = DriverManager.getConnection(url, username, password);
-            // 检查数据库是否存在
+            // Check whether the database exists
             DatabaseMetaData meta = conn.getMetaData();
             ResultSet resultSet = meta.getCatalogs();
 
@@ -28,16 +28,13 @@ public class JDBCTool {
 
             }
 
-            // 不存在，创建数据库和表格
+            // If no, create the database and table
             if (!databaseExists) {
                 System.out.println("Cannot find database " + dbName + ", create one");
                 String[] sqls = TextTool.readSQL();
                 Statement stmt = conn.createStatement();
-                // 创建数据库
                 stmt.executeUpdate(sqls[0]);
-                // 连接数据库
                 conn = DriverManager.getConnection(url + dbName, username, password);
-                // 创建表格
                 stmt = conn.createStatement();
                 for (int i = 1; i < sqls.length; i++) {
                     try {
@@ -47,7 +44,7 @@ public class JDBCTool {
                         e.printStackTrace();
                     }
                 }
-                // 为SchoolMember添加信息
+                // Add information for SchoolMember
                 String[] members = TextTool.readMembers();
                 for (String line : members) {
                     String[] ss = line.split(" ");

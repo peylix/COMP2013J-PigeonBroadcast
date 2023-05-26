@@ -2,27 +2,27 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 95vh;
-    background-color: #1a1a1a;  /* Dark background color */
-    color: #f5f5f5;  /* Light text color */
-    font-family: 'Helvetica Neue', Arial, sans-serif;  /* Modern font */
+    background-color: #1a1a1a;
+    color: #f5f5f5;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
 }
 
 .home-page {
     display: flex;
-    height: 95vh;  /* 100% viewport height */
+    height: 95vh;
     width: 100%;
-    justify-content: center;  /* Centered layout */
+    justify-content: center;
 }
 
 .sidebar {
     width: 20%;
-    background-color: #282828;  /* Darker sidebar */
-    color: #f5f5f5;  /* Light text color */
+    background-color: #282828;
+    color: #f5f5f5;
     display: ruby;
     flex-direction: column;
     align-items: center;
     padding: 20px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.5);  /* Shadow for depth */
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
 
 .sidebar .user-info {
@@ -33,7 +33,7 @@ body {
 .sidebar .user-info img {
     width: 50%;
     border-radius: 50%;
-    box-shadow: 0 0 10px rgba(0,0,0,0.5);  /* Shadow for depth */
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
 
 .sidebar .user-info h3 {
@@ -48,15 +48,15 @@ body {
 .sidebar .menu li {
     padding: 10px;
     margin-bottom: 10px;
-    background-color: #444;  /* Darker menu item background */
+    background-color: #444;
     text-align: center;
     cursor: pointer;
-    border-radius: 5px;  /* Rounded corners for modern look */
-    transition: background-color 0.3s;  /* Smooth color transition */
+    border-radius: 5px;
+    transition: background-color 0.3s;
 }
 
 .sidebar .menu li:hover {
-    background-color: #555;  /* Lighter color on hover */
+    background-color: #555;
 }
 
 .sidebar-button {
@@ -112,29 +112,29 @@ body {
 }
 
 .search-box button:hover {
-    background: dodgerblue;  /* Corrected color name */
+    background: dodgerblue;
     color: #f5f5f5;
 }
 
 
 .main-content {
     width: 80%;
-    background-color: #222;  /* Darker main content background */
-    box-shadow: 0 0 10px rgba(0,0,0,0.5);  /* Shadow for depth */
+    background-color: #222;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
 
 .main-content .info-bar {
-    background-color: #222;  /* Darker info bar background */
-    color: dodgerblue;  /* Bright color for contrast */
+    background-color: #222;
+    color: dodgerblue;
     padding: 20px;
     text-align: center;
 }
 
 .main-content .notice-content {
     padding: 20px;
-    max-height: 80%; /* Limit the height of the content area */
-    overflow-y: auto; /* Add scroll if the content exceeds the max height */
-    scrollbar-color: #555 #222;  /* Dark scrollbar */
+    max-height: 80%;
+    overflow-y: auto;
+    scrollbar-color: #555 #222;
 }
 
 .message-input {
@@ -156,12 +156,12 @@ body {
     padding: 10px 20px;
     border-radius: 15px;
     resize: vertical;
-    box-sizing: border-box;  /* Include padding and border in element's total width */
+    box-sizing: border-box;
 }
 
 .message-input textarea[name='title'] {
     width: 150%;
-    margin-right: 5%;  /* Adjust this value to change the space between title and message */
+    margin-right: 5%;
 }
 
 .message-input textarea[class='message1'] {
@@ -203,20 +203,20 @@ body {
 }
 
 
-/* Message Boxes */
+
 .message-box {
     background-color: #444;
     padding: 20px;
-    margin-bottom: 20px; /* Space between each message box */
+    margin-bottom: 20px;
     border-radius: 10px;
-    position: relative; /* Set position context for absolute positioning of buttons */
+    position: relative;
 }
 
 .message-box p {
-    margin-bottom: 20px; /* Space between the message and buttons */
+    margin-bottom: 20px;
 }
 
-/* Modify and Delete Buttons */
+
 .message-box .modify-button,
 .message-box .delete-button {
     background-color: dodgerblue;
@@ -226,16 +226,16 @@ body {
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s;
-    position: absolute; /* Position buttons absolutely inside message box */
-    bottom: 10px; /* Position at the bottom of the box */
+    position: absolute;
+    bottom: 10px;
 }
 
 .message-box .modify-button {
-    right: 60px; /* Position slightly to the left */
+    right: 60px;
 }
 
 .message-box .delete-button {
-    right: 10px; /* Position at the far right */
+    right: 10px; 
 }
 
 .message-box .modify-button:hover,
@@ -249,7 +249,7 @@ body {
     position: relative;
     margin-bottom: 15px;
     padding: 10px;
-    max-height: 100%;  /* Adjust as needed */
+    max-height: 100%;  
     overflow-y: auto;
 }
 
@@ -261,9 +261,9 @@ body {
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s;
-    position: absolute; /* Position button absolutely inside the notification box */
-    top: 120px; /* Adjust this value to position the button vertically */
-    right: 50px; /* Adjust this value to position the button horizontally */
+    position: absolute; 
+    top: 120px; 
+    right: 50px; 
 }
 
 .old-notification .view-button:hover {
@@ -276,7 +276,7 @@ body {
     position: relative;
     margin-bottom: 15px;
     padding: 10px;
-    max-height: 300px;  /* Adjust as needed */
+    max-height: 300px;  
     overflow-y: auto;
 }
 .notification .modify-button,
@@ -288,8 +288,8 @@ body {
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s;
-    position: absolute; /* Position buttons absolutely inside message box */
-    bottom: 10px; /* Position at the bottom of the box */
+    position: absolute; 
+    bottom: 10px; 
 }
 
 .notification .view-button {
@@ -300,9 +300,9 @@ body {
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s;
-    position: absolute; /* Position button absolutely inside the notification box */
-    top: 80px; /* Adjust this value to position the button vertically */
-    right: 50px; /* Adjust this value to position the button horizontally */
+    position: absolute; 
+    top: 80px; 
+    right: 50px; 
 }
 
 .notification .view-button:hover {
@@ -328,7 +328,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: auto;  /* pushes the element to the bottom */
+    margin-top: auto;  
     width: 100%;
 }
 

@@ -6,12 +6,11 @@
 <html>
 <head>
     <title>Error Page</title>
-    <link rel="stylesheet" href="css/home-style.css">
-    <link rel="icon" href="images/Pigeon.png" type="image">
+    <link rel="stylesheet" href="../../css/home-style.css">
+    <link rel="icon" href="../../images/Pigeon.png" type="image">
 </head>
 
 <%
-    //    获取当前登录用户信息
     User user = (User) session.getAttribute("user");
     String userName = user.getUserName();
     int userID = user.getUserID();
@@ -33,7 +32,7 @@
 <div class="home-page">
     <div class="sidebar">
         <div class="user-info">
-            <a href="home.jsp">
+            <a href="afterlogin/home.jsp">
                 <img id="Pigeon" src="<%=profilePhoto%>" alt="Pigeon">
             </a>
             <h3 id="userName"><%=userName%></h3>
@@ -41,13 +40,13 @@
             <h4 id="userIdentity"><%=userIdentity%></h4>
         </div>
         <div>
-            <form id="sidebar-1" method='post' action="epistlesPage.jsp">
+            <form id="sidebar-1" method='post' action="afterlogin/epistlesPage.jsp">
                 <label>
                     <button type="submit" class="sidebar-button">Epistles</button>
                 </label>
             </form>
             <br>
-            <form id="sidebar-2" method="post" action="feathersPage.jsp">
+            <form id="sidebar-2" method="post" action="afterlogin/feathersPage.jsp">
                 <label>
                     <button type="submit" class="sidebar-button">Feathers</button>
                 </label>
@@ -58,7 +57,7 @@
     </div>
 
     <div class="search-box">
-        <form id="search-input" method="get" action="search.jsp">
+        <form id="search-input" method="get" action="afterlogin/search.jsp">
             <label><input type="text" placeholder="Search..." name="searchInput"></label>
             <button type="submit"></button>
         </form>
@@ -70,7 +69,7 @@
         </div>
         <div class="notice-content">
             <h1>Ah... Something goes wrong... Let's press </h1>
-            <form id="back-home" method='post' action="home.jsp">
+            <form id="back-home" method='post' action="afterlogin/home.jsp">
                 <label>
                     <button type="submit" class="sidebar-button">THIS BUTTON</button>
                 </label>
@@ -80,7 +79,7 @@
     </div>
 </div>
 
-<%@ include file="footer.html" %>
+<%@ include file="../footer.html" %>
 
 </body>
 </html>

@@ -12,12 +12,11 @@
 <html>
 <head>
     <title>Pigeon Broadcast Search Page</title>
-    <link rel="stylesheet" href="css/search-style.css">
-    <link rel="icon" href="images/Pigeon.png" type="image">
+    <link rel="stylesheet" href="../../../css/search-style.css">
+    <link rel="icon" href="../../../images/Pigeon.png" type="image">
 </head>
 
 <%
-    //    获取当前登录用户信息
     User user = (User) session.getAttribute("user");
     String userName = user.getUserName();
     int userID = user.getUserID();
@@ -43,48 +42,37 @@
         searchInput = request.getParameter("searchInput");
         String info;
         if (searchInput.charAt(0) == '#') {
-            info = searchInput.substring(4, searchInput.length());
+            info = searchInput.substring(4);
             String limit = searchInput.substring(1, 3);
             switch (limit) {
-                case "ID":
+                case "ID" -> {
                     try {
                         int noteID = Integer.parseInt(info);
                         notifications.addAll(NotificationDAO.getNotificationByID(noteID));
-                    } catch (NumberFormatException e) {
-                        // 警告
+                    } catch (NumberFormatException ignored) {
                     }
-                    break;
-                case "TI":
-                    notifications.addAll(NotificationDAO.getNotificationByTitle(info));
-                    break;
-                case "CO":
-                    notifications.addAll(NotificationDAO.getNotificationByContent(info));
-                    break;
-                case "TY":
-                    notifications.addAll(NotificationDAO.getNotificationByType(info));
-                    break;
-                case "RD":
+                }
+                case "TI" -> notifications.addAll(NotificationDAO.getNotificationByTitle(info));
+                case "CO" -> notifications.addAll(NotificationDAO.getNotificationByContent(info));
+                case "TY" -> notifications.addAll(NotificationDAO.getNotificationByType(info));
+                case "RD" -> {
                     try {
                         Timestamp timestamp = Timestamp.valueOf(info);
                         notifications.addAll(NotificationDAO.getNotificationByReleaseTime(timestamp));
-                    } catch (IllegalArgumentException e) {
-                        // 警告
+                    } catch (IllegalArgumentException ignored) {
                     }
-                    break;
-                case "PI":
+                }
+                case "PI" -> {
                     try {
                         int publisherID = Integer.parseInt(info);
                         notifications.addAll(NotificationDAO.getNotificationByPublisherID(publisherID));
-                    } catch (NumberFormatException e) {
-                        // 警告
+                    } catch (NumberFormatException ignored) {
                     }
-                    break;
-                default:
-                    // 警告
-                    break;
+                }
+                default -> {
+                }
             }
         } else {
-            // If the searchInput does not start with "#", search in all types
             notifications.addAll(NotificationDAO.getAllNotifications(searchInput));
         }
     }
@@ -176,7 +164,7 @@
     </div>
 </div>
 
-<%@ include file="footer.html" %>
+<%@ include file="../../footer.html" %>
 
 <script>
     function showDetails(id) {
@@ -196,19 +184,6 @@
 
 </body>
 </html>
-
-
-
-1108867 Wang Wu 123 123@ucdconnect.ie
-
-[IMPORTANT] Very important news!
-we may have to sell tb4
-
-3110617 123
-
-
-123 3110617
-
 
 
 

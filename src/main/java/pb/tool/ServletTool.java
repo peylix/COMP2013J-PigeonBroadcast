@@ -7,11 +7,11 @@ public class ServletTool implements ServletContextListener {
 
     @Override
     public void contextInitialized(ServletContextEvent sce) {
+        // Initialize the database before the server starts
         JDBCTool.checkConnection();
     }
 
     @Override
     public void contextDestroyed(ServletContextEvent sce) {
-        // 这里是应用停止时运行的代码
     }
 }
