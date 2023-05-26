@@ -12,7 +12,7 @@
 <html>
 <head>
     <title>Pigeon Broadcast Search Page</title>
-    <link rel="stylesheet" href="css/searchstyle.css">
+    <link rel="stylesheet" href="css/search-style.css">
     <link rel="icon" href="images/Pigeon.png" type="image">
 </head>
 
@@ -196,5 +196,28 @@
 
 </body>
 </html>
+
+
+
+1108867 Wang Wu 123 123@ucdconnect.ie
+
+[IMPORTANT] Very important news!
+we may have to sell tb4
+
+3110617 123
+
+
+123 3110617
+
+
+
+
+
+
+
+
+
+
+
 
 

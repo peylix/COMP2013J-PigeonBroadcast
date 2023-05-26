@@ -14,7 +14,7 @@
 <html>
 <head>
     <title>Epistles</title>
-    <link rel="stylesheet" href="css/messagestyle.css">
+    <link rel="stylesheet" href="css/message-style.css">
     <link rel="icon" href="images/Pigeon.png" type="image">
 </head>
 

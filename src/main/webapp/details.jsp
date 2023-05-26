@@ -12,7 +12,7 @@
 <html>
 <head>
     <title>PigeonBroadcast Details Page</title>
-    <link rel="stylesheet" href="css/details.css">
+    <link rel="stylesheet" href="css/details-style.css">
     <link rel="icon" href="images/Pigeon.png" type="image">
 </head>
 <%
