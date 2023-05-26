@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Pigeon Broadcast Login Page</title>
+    <title>PigeonBroadcast Login Page</title>
     <link rel="stylesheet" href="css/loginstyle.css">
     <link rel="icon" href="images/Pigeon.png" type="image">
 </head>
@@ -12,7 +12,7 @@
     <div class="web-title">
         <div class="title">
             <h1>Pigeon Broadcast</h1> <br>
-            <h2>——Your All-in-One Notification Platform</h2>
+            <h2>——Your All-in-One Messaging System</h2>
         </div>
     </div>
 

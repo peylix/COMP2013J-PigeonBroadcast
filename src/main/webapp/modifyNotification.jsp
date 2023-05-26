@@ -58,7 +58,7 @@
                     response.sendRedirect("feathersPage.jsp");
                 }
             } else {
-                out.print("Unable to send message. Perhaps you do not have the permission.");
+                response.sendRedirect("errorPage.jsp");
             }
         }
     }
@@ -117,11 +117,15 @@
             <div class="old-notification">
                 <h3>ID: <%= notification.getNoteID()%></h3>
                 <%--                <% session.setAttribute("noteID", notification.getNoteID()); %>--%>
-                <h2><a href="details.jsp?noteID=<%= notification.getNoteID()%>">Title: <%= notification.getTitle() %></a></h2>
+                <h2>Title: <%= notification.getTitle() %></h2>
                 <h3>Type: <%= notification.getType() %></h3>
                 <h3>Publisher ID: <%= notification.getPublisherID() %></h3>
                 <h3>Release Time: <%= notification.getReleaseDate() %></h3>
                 <h4><%= notification.getContent()%></h4>
+                <form action="details.jsp" method="get">
+                    <input type="hidden" name="noteID" value="<%= notification.getNoteID()%>" />
+                    <button type="submit" class="view-button">Back</button>
+                </form>
             </div>
         </div>
     </div>

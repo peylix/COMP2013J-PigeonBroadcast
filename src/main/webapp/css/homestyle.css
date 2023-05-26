@@ -217,8 +217,25 @@ body {
 .main-content .info-content .user-notification-list .notification-card {
     background-color: #444;
     border-radius: 10px;
+    position: relative;
     padding: 20px;
     margin-bottom: 10px;
+}
+.main-content .info-content .user-notification-list .notification-card .view-button {
+    background-color: dodgerblue;
+    color: #f5f5f5;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    position: absolute; /* Position button absolutely inside the notification box */
+    top: 120px; /* Adjust this value to position the button vertically */
+    right: 50px; /* Adjust this value to position the button horizontally */
+}
+
+.main-content .info-content .user-notification-list .notification-card .view-button:hover {
+    background-color: #007ad9;
 }
 
 

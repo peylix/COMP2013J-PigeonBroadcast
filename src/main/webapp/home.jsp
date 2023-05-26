@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Pigeon Broadcast Home Page</title>
+    <title>PigeonBroadcast Home Page</title>
     <link rel="stylesheet" href="css/homestyle.css">
     <link rel="icon" href="images/Pigeon.png" type="image">
 </head>
@@ -65,21 +65,21 @@
 
     <div class="main-content">
         <div class="info-bar">
-            <h2 id="homepage">Pigeon Broadcast</h2>
+            <h2 id="homepage">PigeonBroadcast</h2>
         </div>
         <div class="notice-content">
             <!-- The notice content will be loaded dynamically here -->
-            <h2>Pigeon Broadcast is a notification service for the college community.</h2>
-            <h2>It enables you to send, modify, and delete your own messages.</h2>
-            <h2>You can also search for notifications posted by others using the search box.</h2>
+            <h2>PigeonBroadcast is an information system for posting messages inside a college.</h2>
+            <h2>It allows the faculty, administrative staff and students to send and check messages.</h2>
+            <h2>You can also search for messages posted by users using the search box.</h2>
             <br>
             <br>
             <h2>Please note:</h2>
-            <h2>- If you are an admin or a teacher,
+            <h2>- If you are an administrative staff or teaching staff,
                 <br>
-                  please use the "Epistles" feature to send your notifications. </h2>
+                  please send your messages in Epistles;</h2>
             <h2>- If you are a student (or you may also be managing a club), <br>
-                  please use the "Feathers" feature to send your notifications.</h2>
+                  please send your messages in Feathers.</h2>
         </div>
     </div>
 </div>

@@ -9,7 +9,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Pigeon Broadcast User Page</title>
+    <title>PigeonBroadcast User Page</title>
     <link rel="stylesheet" href="css/homestyle.css">
     <link rel="icon" href="images/Pigeon.png" type="image">
 </head>
@@ -33,15 +33,15 @@
     }
 
     if (request.getMethod().equals("POST")) {
-        // 获取提交的新密码和电子邮件地址
+        // get the new password, profilePhoto and email
         String newPassword = (!Objects.equals(request.getParameter("password"), "")) ? request.getParameter("password") : password;
         String newProfilePhoto = (!Objects.equals(request.getParameter("profilePhoto"), "")) ? request.getParameter("profilePhoto") : profilePhoto;
         String newEmail = (!Objects.equals(request.getParameter("email"), "")) ? request.getParameter("email") : email;
 
-        // 这里是更新数据库中的信息的逻辑
+        // update the database
         if (UserDAO.updateUserInfo(user, newPassword, newProfilePhoto, newEmail)) {
-            user = UserDAO.login(user.getUserID(), newPassword);  // 重新获取更新后的用户信息
-            session.setAttribute("user", user);  // 将更新后的用户信息存入 session
+            user = UserDAO.login(user.getUserID(), newPassword);  // get the newly updated user info
+            session.setAttribute("user", user);  // put the updated user into session
             response.sendRedirect("home.jsp");
         };
     }
@@ -142,10 +142,14 @@
                 %>
                 <div class="notification-card">
                     <h3>ID: <%= notification.getNoteID()%></h3>
-                    <h2><a href="details.jsp?noteID=<%= notification.getNoteID()%>">Title: <%= notification.getTitle() %></a></h2>
+                    <h2>Title: <%= notification.getTitle() %></h2>
                     <h3>Type: <%= notification.getType() %></h3>
                     <h3>Publisher ID: <%= notification.getPublisherID() %></h3>
                     <h3>Release Time: <%= notification.getReleaseDate() %></h3>
+                    <form action="details.jsp" method="get">
+                        <input type="hidden" name="noteID" value="<%= notification.getNoteID()%>" />
+                        <button type="submit" class="view-button">View Details</button>
+                    </form>
                 </div>
                 <% } %>
 

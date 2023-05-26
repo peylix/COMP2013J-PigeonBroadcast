@@ -11,7 +11,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Pigeon Broadcast Search Page</title>
+    <title>PigeonBroadcast Details Page</title>
     <link rel="stylesheet" href="css/details.css">
     <link rel="icon" href="images/Pigeon.png" type="image">
 </head>
@@ -77,7 +77,7 @@
 
     <div class="main-content">
         <div class="info-bar">
-            <h2 id="homepage">Search Result</h2>
+            <h2 id="homepage">Details</h2>
         </div>
         <div class="notice-content">
             <div class="notification">

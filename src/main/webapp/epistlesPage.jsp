@@ -137,10 +137,14 @@
             %>
             <div class="notification">
                 <h3>ID: <%= notification.getNoteID()%></h3>
-                <h2><a href="details.jsp?noteID=<%= notification.getNoteID()%>">Title: <%= notification.getTitle() %></a></h2>
+                <h2>Title: <%= notification.getTitle() %></h2>
                 <h3>Type: <%= notification.getType() %></h3>
                 <h3>Publisher ID: <%= notification.getPublisherID() %></h3>
                 <h3>Release Time: <%= notification.getReleaseDate() %></h3>
+                <form action="details.jsp" method="get">
+                    <input type="hidden" name="noteID" value="<%= notification.getNoteID()%>" />
+                    <button type="submit" class="view-button">View Details</button>
+                </form>
 
             </div>
             <%

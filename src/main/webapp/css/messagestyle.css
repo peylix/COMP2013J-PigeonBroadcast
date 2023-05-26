@@ -246,15 +246,34 @@ body {
 .old-notification {
     background-color: #444;
     border-radius: 15px;
+    position: relative;
     margin-bottom: 15px;
     padding: 10px;
     max-height: 100%;  /* Adjust as needed */
     overflow-y: auto;
 }
 
+.old-notification .view-button {
+    background-color: dodgerblue;
+    color: #f5f5f5;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    position: absolute; /* Position button absolutely inside the notification box */
+    top: 120px; /* Adjust this value to position the button vertically */
+    right: 50px; /* Adjust this value to position the button horizontally */
+}
+
+.old-notification .view-button:hover {
+    background-color: #007ad9;
+}
+
 .notification {
     background-color: #444;
     border-radius: 15px;
+    position: relative;
     margin-bottom: 15px;
     padding: 10px;
     max-height: 300px;  /* Adjust as needed */
@@ -272,6 +291,24 @@ body {
     position: absolute; /* Position buttons absolutely inside message box */
     bottom: 10px; /* Position at the bottom of the box */
 }
+
+.notification .view-button {
+    background-color: dodgerblue;
+    color: #f5f5f5;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    position: absolute; /* Position button absolutely inside the notification box */
+    top: 80px; /* Adjust this value to position the button vertically */
+    right: 50px; /* Adjust this value to position the button horizontally */
+}
+
+.notification .view-button:hover {
+    background-color: #007ad9;
+}
+
 
 .notification h2, .notification h3 {
     margin: 10px 0;
