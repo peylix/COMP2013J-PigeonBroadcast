@@ -17,6 +17,7 @@
 </head>
 
 <%
+    //    获取当前登录用户信息
     User user = (User) session.getAttribute("user");
     String userName = user.getUserName();
     int userID = user.getUserID();
@@ -42,37 +43,48 @@
         searchInput = request.getParameter("searchInput");
         String info;
         if (searchInput.charAt(0) == '#') {
-            info = searchInput.substring(4);
+            info = searchInput.substring(4, searchInput.length());
             String limit = searchInput.substring(1, 3);
             switch (limit) {
-                case "ID" -> {
+                case "ID":
                     try {
                         int noteID = Integer.parseInt(info);
                         notifications.addAll(NotificationDAO.getNotificationByID(noteID));
-                    } catch (NumberFormatException ignored) {
+                    } catch (NumberFormatException e) {
+                        // 警告
                     }
-                }
-                case "TI" -> notifications.addAll(NotificationDAO.getNotificationByTitle(info));
-                case "CO" -> notifications.addAll(NotificationDAO.getNotificationByContent(info));
-                case "TY" -> notifications.addAll(NotificationDAO.getNotificationByType(info));
-                case "RD" -> {
+                    break;
+                case "TI":
+                    notifications.addAll(NotificationDAO.getNotificationByTitle(info));
+                    break;
+                case "CO":
+                    notifications.addAll(NotificationDAO.getNotificationByContent(info));
+                    break;
+                case "TY":
+                    notifications.addAll(NotificationDAO.getNotificationByType(info));
+                    break;
+                case "RD":
                     try {
                         Timestamp timestamp = Timestamp.valueOf(info);
                         notifications.addAll(NotificationDAO.getNotificationByReleaseTime(timestamp));
-                    } catch (IllegalArgumentException ignored) {
+                    } catch (IllegalArgumentException e) {
+                        // 警告
                     }
-                }
-                case "PI" -> {
+                    break;
+                case "PI":
                     try {
                         int publisherID = Integer.parseInt(info);
                         notifications.addAll(NotificationDAO.getNotificationByPublisherID(publisherID));
-                    } catch (NumberFormatException ignored) {
+                    } catch (NumberFormatException e) {
+                        // 警告
                     }
-                }
-                default -> {
-                }
+                    break;
+                default:
+                    // 警告
+                    break;
             }
         } else {
+            // If the searchInput does not start with "#", search in all types
             notifications.addAll(NotificationDAO.getAllNotifications(searchInput));
         }
     }
