@@ -39,7 +39,6 @@
         userIdentity = "Student";
     }
 
-
 %>
 
 <%
@@ -50,7 +49,7 @@
     if ("GET".equalsIgnoreCase(request.getMethod())) {
         title = request.getParameter("title");
         String type = request.getParameter("type");
-        message =  request.getParameter("message");
+        message = request.getParameter("message");
 
         // Check if the title and message are not empty
         if (title != null && !title.trim().isEmpty() && message != null && !message.trim().isEmpty()) {
@@ -75,6 +74,7 @@
             notifications.sort(Comparator.comparing(Notification::getReleaseDate).reversed());
         }
     }
+    int notificationNum = notifications.size();
 %>
 
 
@@ -121,6 +121,7 @@
             <h2 id="homepage">Feathers</h2>
         </div>
         <div class="notice-content">
+            <h3>All Feathers: <%=notificationNum%></h3>
             <form id="send-message" method="get" action="feathersPage.jsp">
                 <div class="message-input">
                     <label>
@@ -128,7 +129,8 @@
                     </label>
                     <% if (isOrgAdmin) { %>
                     <label>
-                        <textarea id="new-message2" class="message2" name="message" placeholder="Write a message..."></textarea>
+                        <textarea id="new-message2" class="message2" name="message"
+                                  placeholder="Write a message..."></textarea>
                     </label>
                     <label>
                         <select name="type">
@@ -138,7 +140,8 @@
                     </label>
                     <% } else {%>
                     <label>
-                        <textarea id="new-message1" class="message1" name="message" placeholder="Write a message..."></textarea>
+                        <textarea id="new-message1" class="message1" name="message"
+                                  placeholder="Write a message..."></textarea>
                     </label>
                     <input type="hidden" name="type" value="personal">
                     <% } %>
@@ -185,7 +188,7 @@
                 <%
                 } else {
                 %>
-                <a href="epistlesPage.jsp?currentPage=<%=i%>&"><%=i%>
+                <a href="feathersPage.jsp?currentPage=<%=i%>&"><%=i%>
                 </a>
                 <%
                         }

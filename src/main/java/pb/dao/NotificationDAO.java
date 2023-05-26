@@ -10,30 +10,38 @@ import java.util.List;
 public class NotificationDAO {
 
 
-    public static List<Notification> getAllNotifications() {
+    public static List<Notification> getAllNotifications(String str) {
         List<Notification> notifications = new ArrayList<>();
 
         try {
             Connection conn = JDBCTool.getConnection();
-            Statement st = conn.createStatement();
+            String query = "SELECT DISTINCT * FROM notification WHERE CAST(noteID as CHAR) LIKE ? OR" +
+                    " title LIKE ? OR content LIKE ? OR type LIKE ? OR CAST(releaseDate as CHAR) LIKE ? OR" +
+                    " CAST(publisherID as CHAR) LIKE ?";
+            PreparedStatement pst = conn.prepareStatement(query);
+            pst.setString(1, "%" + str + "%");
+            pst.setString(2, "%" + str + "%");
+            pst.setString(3, "%" + str + "%");
+            pst.setString(4, "%" + str + "%");
+            pst.setString(5, "%" + str + "%");
+            pst.setString(6, "%" + str + "%");
 
-            ResultSet rs = st.executeQuery("SELECT * FROM notification");
+            ResultSet rs = pst.executeQuery();
 
             while (rs.next()) {
+
                 int noteID = rs.getInt("noteID");
                 String title = rs.getString("title");
                 String content = rs.getString("content");
-                String type = rs.getString("type"); // This is a workaround since JDBC does not support enum.
+                String type = rs.getString("type");
                 Timestamp releaseDate = rs.getTimestamp("releaseDate");
                 int publisherID = rs.getInt("publisherID");
 
-                Notification n = new Notification(noteID, title, content, type, releaseDate, publisherID);
-
-                notifications.add(n);
+                Notification notification = new Notification(noteID, title, content, type, releaseDate, publisherID);
+                notifications.add(notification);
             }
-
             rs.close();
-            st.close();
+            pst.close();
             conn.close();
 
 
@@ -44,12 +52,37 @@ public class NotificationDAO {
         return notifications;
     }
 
+    public static int getNotificationCountByID(int nid) {
+
+        int count = 0;
+
+        try {
+            Connection conn = JDBCTool.getConnection();
+            String query = "SELECT COUNT(*) FROM notification WHERE publisherID = ?";
+            PreparedStatement pst = conn.prepareStatement(query);
+            pst.setInt(1, nid);
+
+            ResultSet rs = pst.executeQuery();
+
+            if (rs.next()) {
+                count = rs.getInt(1);
+            }
+
+            pst.close();
+            conn.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return count;
+    }
+
+
     public static List<Notification> getNotificationByID(int nid) {
         List<Notification> notifications = new ArrayList<>();
 
         try {
             Connection conn = JDBCTool.getConnection();
-            String query = "SELECT * FROM notification WHERE CAST(noteId as CHAR) LIKE ?";
+            String query = "SELECT * FROM notification WHERE CAST(noteID as CHAR) LIKE ?";
             PreparedStatement pst = conn.prepareStatement(query);
             pst.setString(1, "%" + nid + "%");
 
@@ -80,7 +113,7 @@ public class NotificationDAO {
         Notification notification = null;
         try {
             Connection conn = JDBCTool.getConnection();
-            String query = "SELECT * FROM notification WHERE CAST(noteId as CHAR) LIKE ?";
+            String query = "SELECT * FROM notification WHERE CAST(noteID as CHAR) LIKE ?";
             PreparedStatement pst = conn.prepareStatement(query);
             pst.setString(1, "%" + nid + "%");
 
@@ -239,7 +272,7 @@ public class NotificationDAO {
 
         try {
             Connection conn = JDBCTool.getConnection();
-            String query = "SELECT * FROM notification WHERE CAST(publisherId as CHAR) LIKE ?";
+            String query = "SELECT * FROM notification WHERE CAST(publisherID as CHAR) LIKE ?";
             PreparedStatement pst = conn.prepareStatement(query);
             pst.setString(1, "%" + pid + "%");
 

@@ -71,6 +71,7 @@
             notifications.sort(Comparator.comparing(Notification::getReleaseDate).reversed());
         }
     }
+    int notificationNum = notifications.size();
 %>
 
 
@@ -114,6 +115,7 @@
             <h2 id="homepage">Epistles</h2>
         </div>
         <div class="notice-content">
+            <h3>All Epistles: <%=notificationNum%></h3>
             <form id="send-message" method="get" action="epistlesPage.jsp">
                 <div class="message-input">
                     <label>

@@ -24,6 +24,8 @@
     String userIdentity = user.getIdentity();
     String email = user.getEmail();
     String userIdentityName;
+    int notificationNum = NotificationDAO.getNotificationCountByID(userID);
+
     if (Objects.equals(user.getIdentity(), "admin")) {
         userIdentityName = "Administrative Staff";
     } else if (Objects.equals(user.getIdentity(), "teacher")) {
@@ -135,7 +137,7 @@
             </div>
 
             <div class="user-notification-list">
-                <h3>Your Notifications:</h3>
+                <h3>Your Notifications: <%=notificationNum%></h3>
                 <%
                     List<Notification> userNotifications = NotificationDAO.getNotificationByPublisherID(userID);
                     for (Notification notification : userNotifications) {

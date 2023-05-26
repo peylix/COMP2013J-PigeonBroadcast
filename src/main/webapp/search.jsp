@@ -85,24 +85,10 @@
             }
         } else {
             // If the searchInput does not start with "#", search in all types
-            notifications.addAll(NotificationDAO.getNotificationByTitle(searchInput));
-            notifications.addAll(NotificationDAO.getNotificationByContent(searchInput));
-            try {
-                int id = Integer.parseInt(searchInput);
-                notifications.addAll(NotificationDAO.getNotificationByID(id));
-                notifications.addAll(NotificationDAO.getNotificationByPublisherID(id));
-            } catch (NumberFormatException e) {
-                // Ignored, as the searchInput might not be a number
-            }
-            notifications.addAll(NotificationDAO.getNotificationByType(searchInput));
-            try {
-                Timestamp timestamp = Timestamp.valueOf(searchInput);
-                notifications.addAll(NotificationDAO.getNotificationByReleaseTime(timestamp));
-            } catch (IllegalArgumentException e) {
-                // Ignored, as the searchInput might not be a timestamp
-            }
+            notifications.addAll(NotificationDAO.getAllNotifications(searchInput));
         }
     }
+    int searchResults = notifications.size();
 %>
 
 <body>
@@ -145,6 +131,7 @@
             <h2 id="homepage">Search Result</h2>
         </div>
         <div class="notice-content">
+            <h3>Search Results: <%=searchResults%></h3>
             <%
                 int itemsPerPage = 3;
                 int numPages = (int) Math.ceil((double) notifications.size() / itemsPerPage);
