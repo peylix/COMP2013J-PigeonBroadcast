@@ -1,2 +1,2 @@
-root
-(please delete this line (2nd line), and input your on password)
+<replace this line (1st line) with your MySQL username>
+<replace this line (2nd line) with your MySQL password>
