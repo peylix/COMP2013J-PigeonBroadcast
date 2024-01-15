@@ -11,17 +11,19 @@ This is the assignment for *COMP2013J Databases and Information Systems*.
 For detailed information, please read: [Info System Report](Info_System_Report.pdf)
 
 ## How to run this project? (SIGNIFICANT!)
-First, you need to put your Mysql account and password in resources/text/database_info.txt.
+First, you need to put your Mysql account and password in `resources/text/database_info.txt`.
 For example: 
 
+```text
 root
 123456
+```
 
-Then, add a configuration for Tomcat Serve - Local, choose Tomcat 9.0.X (other versions may have problems)
-and add "COMP2013J_Group02_war_exploded" as deployment.
+Then, add a configuration for Tomcat Server - Local, choose Tomcat 9.0.X (PigeonBroadcast may have problems with other versions) 
+and add "COMP2013J_Group02_war_exploded" artifact to deployment.
 
-Now, you can run the project normally. It will automatically create a database called "pigeon_broadcast" and 
-related tables if you don't have (The first time you run it, you usually don't).
+Now, you can run the project as expected. It will automatically create a database called "pigeon_broadcast" and 
+related tables if you don't have (if it's the first time you run it, you usually don't have one).
 
 ### Again!!!
-It's important to enter your authorized account and password in resources/text/database_info.txt!
+It's important to enter your authorized account and password in `resources/text/database_info.txt`!
